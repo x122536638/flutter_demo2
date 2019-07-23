@@ -34,7 +34,10 @@ class _ItemCardWidgetState extends State<ItemCardWidget> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: Dp.DP_4),
 //              color: Theme.of(context).primaryColor,
-                color: kCheckoutAmber50,
+//                color: kCheckoutAmber50,
+            decoration: BoxDecoration(color:kCheckoutAmber50,border: Border.all(color: Colors.black12,width: 0.5),),
+
+
                 child: Row(
                   children: <Widget>[
                     Text(
