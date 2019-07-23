@@ -14,6 +14,8 @@ var bus = new EventBus();
 
 void main() {
   debugPaintSizeEnabled = false;
+//  debugPaintSizeEnabled = true;
+
   runApp(new MyApp(key:globalKey2));
 }
 

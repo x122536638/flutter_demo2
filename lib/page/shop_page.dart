@@ -1,13 +1,54 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_client/customView/customView.dart';
+import 'package:flutter_app_client/customView/main_page_widget/item_card_widget.dart';
+//page1
 
 class ShopPage extends StatefulWidget {
   @override
   _ShopPageState createState() => _ShopPageState();
 }
 
-class _ShopPageState extends State<ShopPage> {
+class _ShopPageState extends State<ShopPage> with AutomaticKeepAliveClientMixin{
+
+
+  int  selectedIndex ;
+  List<ClassifyItemBean> items ;
+//  = List.generate(20,(int index){
+//    return ClassifyItemBean(index== 0 ,index, '$index HH', '');
+//  });
+
+
+  @override
+  void initState() {
+
+
+
+    selectedIndex = 0;
+    items = List.generate(20,(int index){
+      return ClassifyItemBean(index== 0 ,index, '$index HH', '');
+    });
+
+
+    super.initState();
+
+  }
+  
+  
+  void changeSelectedIndex(int  index){
+    
+    if(selectedIndex == index) return;
+    setState(() {
+
+      ClassifyItemBean model = items[selectedIndex];
+      model.selected = false;
+      selectedIndex =index;
+      ClassifyItemBean model2 = items[selectedIndex];
+      model2.selected = true;
+    });
+    
+  }
+
   bool open = true;
 
   void changeOpenState() {
@@ -16,33 +57,6 @@ class _ShopPageState extends State<ShopPage> {
     });
   }
 
-  void xx() {
-    ListView();
-  }
-
-//  get v1 {
-//    if (open) {
-//      return SliverGrid(
-//        delegate: SliverChildBuilderDelegate(
-//          (BuildContext context, int index) {
-//            return Text(index.toString());
-//          },
-//          childCount: 40,
-//        ),
-//        gridDelegate:
-//            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-//      );
-//    } else {
-//      return SliverList(
-//        delegate: SliverChildBuilderDelegate(
-//          (BuildContext context, int index) {
-//            return Text(index.toString());
-//          },
-//          childCount: 40,
-//        ),
-//      );
-//    }
-//  }
 
 
 
@@ -61,10 +75,14 @@ get v1{
                 crossAxisCount: 4, //每行三列
                 childAspectRatio: 1.0 //显示区域宽高相等
             ),
-            itemCount:20,
+            itemCount:items.length,
             itemBuilder: (context, index) {
 
-              return ClassifyItemWidget();
+              return ClassifyItemWidget(items[index],callback: (int index2 ){
+
+                changeSelectedIndex(index2);
+
+              },);
             }
         );
     }else{
@@ -79,32 +97,49 @@ get v1{
                 crossAxisCount: 1, //每行三列
                 childAspectRatio: 1.0 //显示区域宽高相等
             ),
-            itemCount:20,
+            itemCount:items.length,
             itemBuilder: (context, index) {
+              return ClassifyItemWidget(items[index],callback: (int index2 ){
 
-              return ClassifyItemWidget();
+                changeSelectedIndex(index2);
+
+              },);
             }
         ),
       );
     }
 
-  return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3, //每行三列
-          childAspectRatio: 1.0 //显示区域宽高相等
-      ),
-      itemCount:40,
-      itemBuilder: (context, index) {
 
-        return Text(index.toString());
-      }
-  );
+  }
+
+
+  get v2{
+
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.builder(
+          shrinkWrap: true,
+          physics: ClampingScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, //每行三列
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                childAspectRatio: 1/1.3, //显示区域宽高相等
+            ),
+            itemCount:40,
+            itemBuilder: (context, index) {
+              return ItemCardWidget();
+            }
+        ),
+      );
+
+
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Colors.white,
       child:
 //
 //      v1,
@@ -117,6 +152,7 @@ get v1{
           IconButton(icon: Icon(Icons.build), onPressed: (){
             changeOpenState();
           }),
+          v2,
 
 
         ],
@@ -126,4 +162,8 @@ get v1{
 
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

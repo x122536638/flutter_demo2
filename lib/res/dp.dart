@@ -1,6 +1,13 @@
 import 'constant.dart';
 
 class Dp {
+
+
+
+
+  static const double PADDING_SPACE = 4 * Constant.UNIT;
+
+
   static const double MARGIN_SPACE = 24 * Constant.UNIT;
   static const double MARGIN_TOP_BOTTOM = 72 * Constant.UNIT;
   static const double BUTTON_HEIGHT = 96 * Constant.UNIT;
