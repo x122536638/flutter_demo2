@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_client/main.dart';
+import 'package:flutter_app_client/page/shop_car.dart';
 import 'package:flutter_app_client/res/constant.dart';
 import 'package:flutter_app_client/tool/international/MQInternationalization.dart';
 import 'package:flutter_app_client/page/shop_page.dart';
@@ -99,7 +100,7 @@ class _MainPageState extends State<MainPage>
             bottomNavigationBar: BottomNavigationBar(
               items: [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.home), title: Text('Home')),
+                    icon: Icon(Icons.home), title: Text('Shopping')),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.business), title: Text('Business')),
                 BottomNavigationBarItem(
@@ -121,7 +122,19 @@ class _MainPageState extends State<MainPage>
               itemCount: tabs.length,
             ),
             floatingActionButton: FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+              //购物车\
+              //  Navigator.of(context).push(
+              //     MaterialPageRoute(fullscreenDialog: true,builder: (context) => ShopCarPage()));
+
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ShopCarPage()));
+
+
+
+
+
+              },
               child: Icon(Icons.add),
             ),
           ),
@@ -139,7 +152,7 @@ class _MainPageState extends State<MainPage>
   }
 
   void _onItemTapped(int value) {
-    //好神奇啊,
+
 
     setState(() {
       _selectedIndex = value;
@@ -249,51 +262,6 @@ class _MyDrawerState extends State<MyDrawer> {
                           context: context,
                           builder: (BuildContext context) {
                             return ChangeNickNameWidget();
-
-//                              SimpleDialog(
-//                              title: Text('修改用户名'),
-//                              children: <Widget>[
-//                                SimpleDialogOption(
-//                                  child: TextFormField(
-//                                    decoration:
-//                                        InputDecoration(labelText: "输入昵称"),
-//                                    validator: (String value) {
-//                                      return value != null ? null : '用户名不为空';
-//                                    },
-//                                  ),
-////                            TextFormField(
-////                              decoration: InputDecoration(
-////                              labelText: "yonghuming",
-////                              icon: Icon(Icons.person),
-////                            ),
-////                            validator:(String t){
-////                            return t.trim().length>0?null:'用户名不能为空';
-////                            },
-//                                ),
-//                                FlatButton(
-//                                  onPressed: () {
-//
-//                                  },
-//                                  child: Text("确定修改"),
-//                                ),
-//                                SimpleDialogOption(
-//                                  onPressed: () async {
-//                                    //如何拿到textformFiled的问题 和是为合法用户名时候修改按钮的点击状态
-//
-//                                    SharedPreferences ins =
-//                                        await SharedPreferences.getInstance();
-//                                    ins.setString('userName', '渣渣辉');
-//
-//                                    setState(() {
-//                                      name = '渣渣辉';
-//                                    });
-//                                  },
-//                                  child: Container(
-//                                      alignment: Alignment.center,
-//                                      child: Text('OK')),
-//                                ),
-//                              ],
-//                            );
                           });
                     },
                   ),
@@ -301,13 +269,6 @@ class _MyDrawerState extends State<MyDrawer> {
                     leading: const Icon(Icons.settings),
                     title: const Text('语言设置'),
                     onTap:
-//                          ()async{
-//                        SharedPreferences prefs = await SharedPreferences.getInstance();
-////                      int counter = prefs.getInt('counter');
-////                      print(counter);
-//                        print('!!!ahdgasdagdahgsdhahgsdgjhajhsdghj');
-//                      }
-
                         () {
                       showAlertDialog(context);
                     },
