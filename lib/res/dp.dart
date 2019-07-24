@@ -70,4 +70,10 @@ class Dp {
   static const double DP_692 = 692 * Constant.UNIT;
   static const double DP_782 = 782 * Constant.UNIT;
   static const double DP_1327 = 1327 * Constant.UNIT;
+
+
+
+
+
+  static const double CarRadius = 30;
 }

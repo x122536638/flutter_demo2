@@ -38,7 +38,7 @@ class _MqWelcomeState extends State<MqWelcome> {
 
 //    Navigator.removeRoute(context, route)
 //    Navigator.pop(context, 'Nope!');
-    Navigator.push(context, new MaterialPageRoute(builder: (context) => new MainPage()));
+    Navigator.push(context, new MaterialPageRoute(builder: (context) =>  MainPage()));
 //  Navigator.replace(context, oldRoute: this, newRoute: null)
   }
   @override

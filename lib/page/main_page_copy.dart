@@ -64,7 +64,6 @@ class _MainPageState extends State<MainPage>
           child: Scaffold(
             key: _globalKey,
             appBar: AppBar(
-                elevation:0,
               title: Text(DemoLocalizations.of(context).titleBarTitle),
 //        Text("app name"),
 //        leading: Icon(Icons.add),//这么加的话 侧拉效果就没了
@@ -112,31 +111,32 @@ class _MainPageState extends State<MainPage>
             ),
             body: new PageView.builder(
               itemBuilder: (BuildContext context, int index) {
-                return new Navigator(
-                  initialRoute: 'home',
-                  onGenerateRoute: (RouteSettings settings) {
-                    WidgetBuilder builder;
-                    switch (settings.name) {
-                      case 'home':
-                        builder = (BuildContext context) =>  pages[index];
-                        break;
-//                      case 'demo1':
-//                        builder = (BuildContext context) =>  pages[index];
-//                        break;
-                      default:
-                        throw new Exception('Invalid route: ${settings.name}');
-                    }
-
-                    return new MaterialPageRoute(builder: builder, settings: settings);
-                  },
-                );
-//                    pages[index]; //这个报错啊
+                return
+//            MainPageSub1();
+                    pages[index]; //这个报错啊
+                //Text(tabs[index]);
+//            index == 1 ? new Text("page1") : new Text('Page2');
               },
               onPageChanged: _pageChange,
               controller: pageController,
               itemCount: tabs.length,
             ),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+              //购物车\
+              //  Navigator.of(context).push(
+              //     MaterialPageRoute(fullscreenDialog: true,builder: (context) => ShopCarPage()));
 
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ShopCarPage()));
+
+
+
+
+
+              },
+              child: Icon(Icons.add),
+            ),
           ),
         ),
       ),

@@ -60,7 +60,7 @@ class MyAppState extends State<MyApp> {
 
 
 
-    return new MaterialApp(
+    return  MaterialApp(
 
       theme: ThemeData( primaryColor: Colors.amberAccent),
       localizationsDelegates: [
@@ -151,13 +151,7 @@ class _XHQSTFWState extends State<XHQSTFW> {
         body: Center(
           child:
           MqWelcome(),
-//            new Builder(builder: (BuildContext context){
-//
-//              print('$context   11111');
-//
-////              return  MqWelcome();
-//            }),
-//          MqWelcome(),
+
         ),
       ),
 

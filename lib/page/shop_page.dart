@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_client/customView/customView.dart';
 import 'package:flutter_app_client/customView/main_page_widget/item_card_widget.dart';
+import 'package:flutter_app_client/page/shop_car.dart';
 //page1
 
 class ShopPage extends StatefulWidget {
@@ -138,32 +139,117 @@ get v1{
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child:
+    super.build(context);
+    return
+//      TESTW();
+
+
+      Scaffold(
+        body: Container(
+        color: Colors.white,
+        child:
 //
 //      v1,
 
 
-      ListView(
+        ListView(
 //        shrinkWrap: true,
-        children: <Widget>[
-          v1,
-          IconButton(icon: Icon(Icons.build), onPressed: (){
-            changeOpenState();
-          }),
-          v2,
-
-
-        ],
-      ),
+          children: <Widget>[
+            v1,
+            IconButton(icon: Icon(Icons.build), onPressed: (){
+              changeOpenState();
 
 
 
-    );
+
+            }),
+            v2,
+
+
+          ],
+        ),
+
+
+
+    ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            //购物车\
+            //  Navigator.of(context).push(
+            //     MaterialPageRoute(fullscreenDialog: true,builder: (context) => ShopCarPage()));
+
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => ShopCarPage()));
+
+
+
+
+
+          },
+          child: Icon(Icons.add),
+        ),
+
+      );
+
+
+
   }
 
   @override
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
+}
+class TESTW extends StatelessWidget {
+
+
+  Widget _buildStack() => Stack(
+    alignment: const Alignment(0.0, 0.5),
+    children: [
+      CircleAvatar(
+        backgroundImage: AssetImage('images/iconbg.png'),
+        radius: 200,
+      ),
+      Container(
+        decoration: BoxDecoration(
+          color: Colors.black45,
+        ),
+        child: Text(
+          'Mia B',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    ],
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.green,
+
+     child:IconButton(icon: Icon(Icons.ac_unit), onPressed: (){
+
+       Navigator.push(context, MaterialPageRoute<void>(
+         builder: (BuildContext context) {
+           return Scaffold(
+//             appBar: AppBar(title: Text('My Page')),
+             body: Center(
+               child: FlatButton(
+                 child: Text('POP'),
+                 onPressed: () {
+                   Navigator.pop(context);
+                 },
+               ),
+             ),
+           );
+         },
+       ));
+
+     }),
+//     _buildStack(),
+    );
+  }
 }
