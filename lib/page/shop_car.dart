@@ -11,6 +11,11 @@ class ShopCarPage extends StatefulWidget {
 }
 
 class _ShopCarPageState extends State<ShopCarPage> {
+
+  List list = new List<String>.generate(
+      3,
+          (i) => i.toString());
+
   Widget buildItem(BuildContext context, int index) {
     //设置字体样式
     TextStyle textStyle =
@@ -52,6 +57,14 @@ class _ShopCarPageState extends State<ShopCarPage> {
                 value: dropdown1Value,
                 onChanged: (String newValue) {
                   setState(() {
+                    if(newValue == 'Zero'){
+                      list.removeAt(index);
+                      setState(() {
+
+                      });
+
+                      return;
+                    }
                     dropdown1Value = newValue;
                   });
                 },
@@ -123,7 +136,7 @@ class _ShopCarPageState extends State<ShopCarPage> {
                 left: 0,
                 right: 0,
                 child: ListView.separated(
-                  itemCount: 10,
+                  itemCount: list.length,
                   //列表项构造器
 //                itemBuilder: (BuildContext context, int index) {
 //                  return ListTile(title: Text("$index"));
@@ -160,7 +173,25 @@ class _ShopCarPageState extends State<ShopCarPage> {
 //              ),
 
               CustomNavBar(
-                centerWidget:RaisedButton(onPressed: (){},color: kcolorOrange,child: Text('check out',style: TextStyle(color: Colors.white)),)),
+                centerWidget:RaisedButton(onPressed: (){
+
+
+                  Navigator.push(context, MaterialPageRoute<void>(
+                    builder: (BuildContext context) {
+                      return Scaffold(
+                        body: Center(
+                          child: FlatButton(
+                            child: Text('POP'),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                  ));
+
+                },color: kcolorOrange,child: Text('check out',style: TextStyle(color: Colors.white)),)),
               
             ],
           ),
