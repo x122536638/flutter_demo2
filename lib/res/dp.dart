@@ -76,4 +76,5 @@ class Dp {
 
 
   static const double CarRadius = 30;
+  static const double BottonNavHeigt = 80.0;
 }

@@ -22,5 +22,9 @@ const kCheckoutErrorRed = Color(0xFFC5032B);
 const kColorNav = Color(0xffFFD54F);
 
 const kColorFontBlack1 = Color(0x99000000);
-
+const kCarSelectNubColor =  Colors.black26;
 const kseparatedLineColor =  Colors.black26;
+
+const kCircularLineColor  =  Colors.black12;
+
+const kcolorOrange = Color(0xffff6f00);
