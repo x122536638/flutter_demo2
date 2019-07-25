@@ -23,3 +23,4 @@ const kColorNav = Color(0xffFFD54F);
 
 const kColorFontBlack1 = Color(0x99000000);
 
+const kseparatedLineColor =  Colors.black26;
