@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_client/page/shop_car_order.dart';
 import 'package:flutter_app_client/res/colors.dart';
 import 'package:flutter_app_client/res/dp.dart';
 import 'package:flutter_app_client/customView/cart_page_widget/custom_nav_bar.dart';
@@ -11,10 +12,7 @@ class ShopCarPage extends StatefulWidget {
 }
 
 class _ShopCarPageState extends State<ShopCarPage> {
-
-  List list = new List<String>.generate(
-      3,
-          (i) => i.toString());
+  List list = new List<String>.generate(3, (i) => i.toString());
 
   Widget buildItem(BuildContext context, int index) {
     //设置字体样式
@@ -51,17 +49,15 @@ class _ShopCarPageState extends State<ShopCarPage> {
               decoration: BoxDecoration(
                   color: kCarSelectNubColor,
                   borderRadius: BorderRadius.circular(5)),
-              width: 116,
+              width: 200,
               child: DropdownButton<String>(
                 isExpanded: true,
                 value: dropdown1Value,
                 onChanged: (String newValue) {
                   setState(() {
-                    if(newValue == 'Zero'){
+                    if (newValue == 'Zero') {
                       list.removeAt(index);
-                      setState(() {
-
-                      });
+                      setState(() {});
 
                       return;
                     }
@@ -173,26 +169,36 @@ class _ShopCarPageState extends State<ShopCarPage> {
 //              ),
 
               CustomNavBar(
-                centerWidget:RaisedButton(onPressed: (){
+                  centerWidget: Container(
+                    height: 34,
+                    child: RaisedButton(
 
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => ShopCarOrderPage()));
 
-                  Navigator.push(context, MaterialPageRoute<void>(
-                    builder: (BuildContext context) {
-                      return Scaffold(
-                        body: Center(
-                          child: FlatButton(
-                            child: Text('POP'),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                          ),
-                        ),
-                      );
-                    },
-                  ));
-
-                },color: kcolorOrange,child: Text('check out',style: TextStyle(color: Colors.white)),)),
-              
+//                  ShopCarOrderPage
+//                    Navigator.push(context, MaterialPageRoute<void>(
+//                      builder: (BuildContext context) {
+//                        return Scaffold(
+//                          body: Center(
+//                            child: FlatButton(
+//                              child: Text('POP'),
+//                              onPressed: () {
+//                                Navigator.pop(context);
+//                              },
+//                            ),
+//                          ),
+//                        );
+//                      },
+//                    ));
+                },
+                color: kcolorOrange,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
+//                shape: drawShape('radius'),
+                child: Text('check out', style: TextStyle(color: Colors.white)),
+              ),
+                  )),
             ],
           ),
         ),

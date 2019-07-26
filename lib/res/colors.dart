@@ -28,3 +28,12 @@ const kseparatedLineColor =  Colors.black26;
 const kCircularLineColor  =  Colors.black12;
 
 const kcolorOrange = Color(0xffff6f00);
+//const kcolorOrange2 =Theme.of(context).dividerColor);
+
+
+class MainColr{
+
+  static Color lineSperaColor(BuildContext context){
+    return Theme.of(context).dividerColor;
+  }
+}

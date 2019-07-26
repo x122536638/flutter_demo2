@@ -57,7 +57,10 @@ class _CustomNavBarState extends State<CustomNavBar> {
             child: IconButton(
                 icon: Icon(Icons.clear),
                 onPressed: () {
-                  Navigator.of(context).pop();
+//                  Navigator.of(context).pop();
+//                  Navigator.of(context).popUntil(ModalRoute.withName("home"));
+                  NavigatorState  nav = Navigator.of(context);
+                  nav.popUntil(ModalRoute.withName("${nav.widget.initialRoute}") );
                 })),
 
       ];
@@ -71,6 +74,8 @@ class _CustomNavBarState extends State<CustomNavBar> {
                 icon: Icon(Icons.keyboard_backspace),
                 onPressed: () {
                   Navigator.of(context).pop();
+
+
                 })),
 
 //          IconButton(icon: Icon(Icons.keyboard_backspace), onPressed: () {
@@ -90,7 +95,9 @@ class _CustomNavBarState extends State<CustomNavBar> {
             child: IconButton(
                 icon: Icon(Icons.clear),
                 onPressed: () {
-                  Navigator.of(context).pop();
+//                  Navigator.of(context).pop();
+                  NavigatorState  nav = Navigator.of(context);
+                  nav.popUntil(ModalRoute.withName("${nav.widget.initialRoute}") );
                 })),
 
       ];
