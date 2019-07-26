@@ -94,3 +94,86 @@ coverage/
 !**/ios/**/default.pbxuser
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+android/.gradle/4.10.2/fileChanges/last-build.bin
+android/.gradle/4.10.2/fileHashes/fileHashes.bin
+android/.gradle/4.10.2/fileHashes/resourceHashesCache.bin
+android/.gradle/4.10.2/gc.properties
+android/.gradle/4.10.2/javaCompile/classAnalysis.bin
+android/.gradle/4.10.2/javaCompile/jarAnalysis.bin
+android/.gradle/4.10.2/javaCompile/taskHistory.bin
+android/.gradle/4.10.2/taskHistory/taskHistory.bin
+android/.gradle/buildOutputCleanup/cache.properties
+android/.gradle/buildOutputCleanup/outputFiles.bin
+android/.gradle/vcs-1/gc.properties
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+android/gradle/wrapper/gradle-wrapper.jar
+android/gradlew
+android/gradlew.bat
+android/local.properties
+ios/.symlinks/flutter
+ios/.symlinks/plugins/path_provider
+ios/.symlinks/plugins/shared_preferences
+ios/Flutter/App.framework/App
+ios/Flutter/App.framework/flutter_assets/AssetManifest.json
+ios/Flutter/App.framework/flutter_assets/FontManifest.json
+ios/Flutter/App.framework/flutter_assets/fonts/MaterialIcons-Regular.ttf
+ios/Flutter/App.framework/flutter_assets/images/bg3.png
+ios/Flutter/App.framework/flutter_assets/images/iconbg.png
+ios/Flutter/App.framework/flutter_assets/images/iconbg2.png
+ios/Flutter/App.framework/flutter_assets/images/iconbg3.png
+ios/Flutter/App.framework/flutter_assets/isolate_snapshot_data
+ios/Flutter/App.framework/flutter_assets/kernel_blob.bin
+ios/Flutter/App.framework/flutter_assets/LICENSE
+ios/Flutter/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+ios/Flutter/App.framework/flutter_assets/vm_snapshot_data
+ios/Flutter/App.framework/Info.plist
+ios/Flutter/Flutter.framework/Flutter
+ios/Flutter/Flutter.framework/Headers/Flutter.h
+ios/Flutter/Flutter.framework/Headers/FlutterAppDelegate.h
+ios/Flutter/Flutter.framework/Headers/FlutterBinaryMessenger.h
+ios/Flutter/Flutter.framework/Headers/FlutterCallbackCache.h
+ios/Flutter/Flutter.framework/Headers/FlutterChannels.h
+ios/Flutter/Flutter.framework/Headers/FlutterCodecs.h
+ios/Flutter/Flutter.framework/Headers/FlutterDartProject.h
+ios/Flutter/Flutter.framework/Headers/FlutterEngine.h
+ios/Flutter/Flutter.framework/Headers/FlutterHeadlessDartRunner.h
+ios/Flutter/Flutter.framework/Headers/FlutterMacros.h
+ios/Flutter/Flutter.framework/Headers/FlutterPlatformViews.h
+ios/Flutter/Flutter.framework/Headers/FlutterPlugin.h
+ios/Flutter/Flutter.framework/Headers/FlutterPluginAppLifeCycleDelegate.h
+ios/Flutter/Flutter.framework/Headers/FlutterTexture.h
+ios/Flutter/Flutter.framework/Headers/FlutterViewController.h
+ios/Flutter/Flutter.framework/icudtl.dat
+ios/Flutter/Flutter.framework/Info.plist
+ios/Flutter/Flutter.framework/Modules/module.modulemap
+ios/Flutter/Generated.xcconfig
+ios/Pods/Headers/Private/path_provider/PathProviderPlugin.h
+ios/Pods/Headers/Private/shared_preferences/SharedPreferencesPlugin.h
+ios/Pods/Headers/Public/path_provider/PathProviderPlugin.h
+ios/Pods/Headers/Public/shared_preferences/SharedPreferencesPlugin.h
+ios/Pods/Local Podspecs/Flutter.podspec.json
+ios/Pods/Local Podspecs/path_provider.podspec.json
+ios/Pods/Local Podspecs/shared_preferences.podspec.json
+ios/Pods/Pods.xcodeproj/project.pbxproj
+ios/Pods/Pods.xcodeproj/xcuserdata/wangshouli.xcuserdatad/xcschemes/Flutter.xcscheme
+ios/Pods/Pods.xcodeproj/xcuserdata/wangshouli.xcuserdatad/xcschemes/path_provider.xcscheme
+ios/Pods/Pods.xcodeproj/xcuserdata/wangshouli.xcuserdatad/xcschemes/Pods-Runner.xcscheme
+ios/Pods/Pods.xcodeproj/xcuserdata/wangshouli.xcuserdatad/xcschemes/shared_preferences.xcscheme
+ios/Pods/Pods.xcodeproj/xcuserdata/wangshouli.xcuserdatad/xcschemes/xcschememanagement.plist
+ios/Pods/Target Support Files/Flutter/Flutter.xcconfig
+ios/Pods/Target Support Files/path_provider/path_provider-dummy.m
+ios/Pods/Target Support Files/path_provider/path_provider-prefix.pch
+ios/Pods/Target Support Files/path_provider/path_provider.xcconfig
+ios/Pods/Target Support Files/Pods-Runner/Pods-Runner-acknowledgements.markdown
+ios/Pods/Target Support Files/Pods-Runner/Pods-Runner-acknowledgements.plist
+ios/Pods/Target Support Files/Pods-Runner/Pods-Runner-dummy.m
+ios/Pods/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh
+ios/Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig
+ios/Pods/Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig
+ios/Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig
+ios/Pods/Target Support Files/shared_preferences/shared_preferences-dummy.m
+ios/Pods/Target Support Files/shared_preferences/shared_preferences-prefix.pch
+ios/Pods/Target Support Files/shared_preferences/shared_preferences.xcconfig
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
+ios/ServiceDefinitions.json
