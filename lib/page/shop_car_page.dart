@@ -110,7 +110,7 @@ class _ShopCarPageState extends State<ShopCarPage> {
           decoration: BoxDecoration(
             color: kCheckoutAmber50,
             borderRadius:
-                BorderRadius.only(topLeft: Radius.circular(Dp.CarRadius)),
+                BorderRadius.only(topLeft: Radius.circular(DP.CarRadius)),
           ),
           child: Stack(
             alignment: Alignment.center,

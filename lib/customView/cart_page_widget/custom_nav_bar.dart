@@ -118,7 +118,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
       bottom: 0,
       left: 0,
       right: 0,
-      height: Dp.BottonNavHeigt,
+      height: DP.BottonNavHeigt,
     );
   }
 }

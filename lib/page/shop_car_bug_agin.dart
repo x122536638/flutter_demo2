@@ -38,7 +38,7 @@ class _ShopCarBuyAginPageState extends State<ShopCarBuyAginPage> {
           decoration: BoxDecoration(
             color: kCheckoutAmber50,
             borderRadius:
-                BorderRadius.only(topLeft: Radius.circular(Dp.CarRadius)),
+                BorderRadius.only(topLeft: Radius.circular(DP.CarRadius)),
           ),
           child: Stack(
             alignment: Alignment.center,
@@ -108,7 +108,7 @@ class OrderSettingWidget extends StatelessWidget {
       padding: const EdgeInsets.all(.0),
       child: Container(
 
-        height: Dp.DP_96,
+        height: DP.DP_96,
         child: Row(
           children: <Widget>[
 

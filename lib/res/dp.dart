@@ -1,6 +1,6 @@
 import 'constant.dart';
 
-class Dp {
+class DP {
 
 
 
@@ -77,4 +77,13 @@ class Dp {
 
   static const double CarRadius = 30;
   static const double BottonNavHeigt = 80.0;
+  
+  
+  static  double getDP(double d){return d * Constant.UNIT;}
+
+
+//  34.54
+
+  static double bigFontSize = getDP(34.54);
+  
 }

@@ -31,9 +31,22 @@ const kcolorOrange = Color(0xffff6f00);
 //const kcolorOrange2 =Theme.of(context).dividerColor);
 
 
-class MainColr{
+class MainColor{
 
   static Color lineSperaColor(BuildContext context){
     return Theme.of(context).dividerColor;
   }
+
+
+  //0x99000000
+
+  static Color textColorMiddle = Color(0x99000000);
+
+  static Color textColorBlack = Color(0xDE000000);
+
+
+  static Color borderColorLightDarkGary = Color(0x1F000000);
+
+
+
 }

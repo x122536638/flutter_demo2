@@ -38,7 +38,7 @@ class _ShopCarOrderPageState extends State<ShopCarOrderPage> {
           decoration: BoxDecoration(
             color: kCheckoutAmber50,
             borderRadius:
-                BorderRadius.only(topLeft: Radius.circular(Dp.CarRadius)),
+                BorderRadius.only(topLeft: Radius.circular(DP.CarRadius)),
           ),
           child: Stack(
             alignment: Alignment.center,
@@ -107,7 +107,7 @@ class _ShopCarOrderPageState extends State<ShopCarOrderPage> {
                           ),
                         ],
                       ),
-                      SizedBox(height: Dp.DP_16,),
+                      SizedBox(height: DP.DP_16,),
                       OrderSettingWidget(),
                       Divider(),
                       OrderSettingWidget(),
@@ -161,7 +161,7 @@ class OrderSettingWidget extends StatelessWidget {
       padding: const EdgeInsets.all(.0),
       child: Container(
 
-        height: Dp.DP_96,
+        height: DP.DP_96,
         child: Row(
           children: <Widget>[
 

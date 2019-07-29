@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_client/main.dart';
-import 'package:flutter_app_client/page/shop_car.dart';
+import 'package:flutter_app_client/page/shop_car_page.dart';
+import 'package:flutter_app_client/page/user_page.dart';
 import 'package:flutter_app_client/res/constant.dart';
 import 'package:flutter_app_client/tool/international/MQInternationalization.dart';
 import 'package:flutter_app_client/page/shop_page.dart';
@@ -28,7 +29,7 @@ class _MainPageState extends State<MainPage>
 //  List pages =['MainPageSub1','MainPageSub1','MainPageSub1'];//问题 这个报错啊
 //  List pages =[MainPageSub1,MainPageSub1,MainPageSub1];//问题 这个报错啊
 //  List pages = [MainPageSub1(), MainPageSub1(), MainPageSub1()];
-  List pages = [ShopPage(), Text(''), Text('')];
+  List pages = [ShopPage(), Text('page2'), User_page()];
 
   int _selectedIndex = 1;
   int _currentPageViewIndex = 0;
@@ -103,9 +104,9 @@ class _MainPageState extends State<MainPage>
                 BottomNavigationBarItem(
                     icon: Icon(Icons.home), title: Text('Shopping')),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.business), title: Text('Business')),
+                    icon: Icon(Icons.business), title: Text('Orders')),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.school), title: Text('School')),
+                    icon: Icon(Icons.school), title: Text('my meiqo')),
               ],
               currentIndex: _currentPageViewIndex,
               onTap: onTap, // _onItemTapped,

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_client/customView/customView.dart';
 import 'package:flutter_app_client/customView/main_page_widget/item_card_widget.dart';
-import 'package:flutter_app_client/page/shop_car.dart';
+import 'package:flutter_app_client/page/shop_car_page.dart';
 //page1
 
 class ShopPage extends StatefulWidget {
