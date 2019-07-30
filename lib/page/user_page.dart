@@ -2,12 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_client/customView/customView.dart';
 import 'package:flutter_app_client/customView/main_page_widget/item_card_widget.dart';
-import 'package:flutter_app_client/customView/user_Info_page_widget/setting_userinfo_widget.dart' as setting;
+import 'package:flutter_app_client/customView/user_Info_page_widget/setting_userinfo_widget.dart'
+    as setting;
 import 'package:flutter_app_client/customView/user_Info_page_widget/setting_userinfo_widget.dart';
 import 'package:flutter_app_client/model/user_address_info.dart';
 import 'package:flutter_app_client/page/shop_car_page.dart';
+
 //import 'package:flutter_app_client/page/shop_car_bug_agin.dart';
 import 'package:flutter_app_client/res/dp.dart';
+import 'package:flutter_app_client/tool/scoped_model/global_model.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 import '../res/colors.dart';
 //page1
@@ -80,11 +84,28 @@ class _User_pageState extends State<User_page>
                   flex: 50,
                   child: Container(
                     height: DP.getDP(96.0),
-                    padding: EdgeInsets.all(DP.getDP(12.0),),
+                    padding: EdgeInsets.all(
+                      DP.getDP(12.0),
+                    ),
                     child: Stack(
                       children: <Widget>[
-                        Positioned(child: Text('123131313'),top: 0,left: 0,right: 0,),
-                        Positioned(child: Text('\$88.88',style: TextStyle(fontSize: DP.bigFontSize,color: MainColor.textColorBlack),),bottom: 0,left: 0,right: 0,),
+                        Positioned(
+                          child: Text('123131313'),
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                        ),
+                        Positioned(
+                          child: Text(
+                            '\$88.88',
+                            style: TextStyle(
+                                fontSize: DP.bigFontSize,
+                                color: MainColor.textColorBlack),
+                          ),
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                        ),
                       ],
                     ),
                   )),
@@ -98,11 +119,28 @@ class _User_pageState extends State<User_page>
                   flex: 50,
                   child: Container(
                     height: DP.getDP(96.0),
-                    padding: EdgeInsets.all(DP.getDP(12.0),),
+                    padding: EdgeInsets.all(
+                      DP.getDP(12.0),
+                    ),
                     child: Stack(
                       children: <Widget>[
-                        Positioned(child: Text('123131313'),top: 0,left: 0,right: 0,),
-                        Positioned(child: Text('\$88.88',style: TextStyle(fontSize: DP.bigFontSize,color: MainColor.textColorBlack),),bottom: 0,left: 0,right: 0,),
+                        Positioned(
+                          child: Text('123131313'),
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                        ),
+                        Positioned(
+                          child: Text(
+                            '\$88.88',
+                            style: TextStyle(
+                                fontSize: DP.bigFontSize,
+                                color: MainColor.textColorBlack),
+                          ),
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                        ),
                       ],
                     ),
                   )),
@@ -111,52 +149,73 @@ class _User_pageState extends State<User_page>
         ));
   }
 
+  void func() {
+    //全局模型更新
+    print('回调了');
+//      model.changeUserAddressInfo(UserAddressInfo(firstName: '陈'));
+  }
+
+
+  AddressSettingWidget _addressSettingWidget;
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return
-//      TESTW();
 
-        Scaffold(
-      body: Container(
-        color: kCheckoutAmber50,
-        child:
+    //拿到全局变量
+    GlolbModel glolbModel = GlolbModel.of(context);
+    print(glolbModel);
+    print('!~~~~~~~~~~');
+
+    return ScopedModelDescendant<GlolbModel>(builder: (
+      BuildContext context,
+      Widget child,
+      GlolbModel model,
+    ) {
+      return Scaffold(
+        body: Container(
+          color: kCheckoutAmber50,
+          child:
 //
 //      v1,
 
-            ListView(
+              ListView(
 //        shrinkWrap: true,
-          children: <Widget>[
-            v1,
+            children: <Widget>[
+              v1,
 
 //            SizedBox(height: 18,),
-            Container(
-              margin: EdgeInsets.only(top: 3), //上个widget 有个底部阴影
-              color: Colors.white,
-              height: DP.getDP(8.0),
-            ),
-            AddressSettingWidget(),
-            Divider(),
+              Container(
+                margin: EdgeInsets.only(top: 3), //上个widget 有个底部阴影
+                color: Colors.white,
+                height: DP.getDP(8.0),
+              ),
+                  _addressSettingWidget = AddressSettingWidget(
+                    key:UniqueKey(),
+                  addressModel: model.userAddressInfo,
+                  doneButtonClidck: () {
+
+
+                    //把   AddressSettingWidget 里的centerView里面的数据覆盖  model.userAddressInfo
+                    //
+
+                    model
+                        .changeUserAddressInfo(_addressSettingWidget.currentAddressInfo());
+                  }),
+              Divider(),
 //            setting.OrderSettingWidget(),
-            Divider(),
+              Divider(),
 //            setting.OrderSettingWidget(),
-            Divider(),
-            v2,
-          ],
+              Divider(),
+              v2,
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 
   @override
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }
-
-
-
-
-
-
-
-

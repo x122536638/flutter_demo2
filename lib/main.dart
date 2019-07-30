@@ -3,7 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_app_client/tool/EventBus.dart';
 import 'package:flutter_app_client/tool/international/MQInternationalization.dart';
 import 'package:flutter_app_client/page/welcome_page.dart';
+import 'package:flutter_app_client/tool/scoped_model/global_model.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 var bus = new EventBus();
 
@@ -29,6 +31,10 @@ class MyAppState extends State<MyApp> {
 
   Locale locale = const Locale('zh', 'CN');
 
+
+  final model = GlolbModel();
+
+
   changeLocal(Locale l) {
     setState(() {
       locale = l;
@@ -37,33 +43,40 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.amberAccent),
-      localizationsDelegates: [
-        // 本地化的代理类
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        DemoLocalizationsDelegate.delegate,
-      ],
-      supportedLocales: [
-        const Locale('en', 'US'), // 美国英语
-        const Locale('zh', 'CN'), // 中文简体
-        //其它Locales
-      ],
+  return
+
+    ScopedModel<GlolbModel>(
+      model: model,
+
+      child: MaterialApp(
+        theme: ThemeData(primaryColor: Colors.amberAccent),
+        localizationsDelegates: [
+          // 本地化的代理类
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          DemoLocalizationsDelegate.delegate,
+        ],
+        supportedLocales: [
+          const Locale('en', 'US'), // 美国英语
+          const Locale('zh', 'CN'), // 中文简体
+          //其它Locales
+        ],
 //      locale: const Locale('en', 'US'),
-      locale: locale, //如果修改这个 则用路由估计没问题
+        locale: locale, //如果修改这个 则用路由估计没问题
 
 //      title: DemoLocalizations.of(context).titleBarTitle,//'Welcome to Flutter',
-      home: Builder(builder: (context) {
-        return XHQLocalizations(
+        home: Builder(builder: (context) {
+          return XHQLocalizations(
 //
 
-          child: XHQSTFW(), //页面转换是不是应该换这个child 而不应该用路由切换
-          key: globalKey,
-        );
-      }),
-    );
-  }
+            child: XHQSTFW(), //页面转换是不是应该换这个child 而不应该用路由切换
+            key: globalKey,
+          );
+        }),
+      ),
+    );}
+
+
 }
 
 //class MyApp extends StatelessWidget {

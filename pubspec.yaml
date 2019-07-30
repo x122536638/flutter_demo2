@@ -40,6 +40,10 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+analyzer:
+strong-mode: true
+language:
+enableSuperMixins: true
 
 
 dev_dependencies:

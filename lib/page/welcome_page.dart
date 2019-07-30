@@ -29,7 +29,6 @@ class _MqWelcomeState extends State<MqWelcome> {
   _start() {
     print('$context   222222');
     //拿到textfrom?
-//    textField01.text;/* 鸭羹没有这个属性啊 */
 
 //      print(textField01.controller.text);
 

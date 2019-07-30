@@ -4,23 +4,35 @@ import 'package:flutter_app_client/res/dp.dart';
 
 abstract class OrderSettingWidget extends StatefulWidget {
 //  UserAdressInfo user_adress_info;
-  bool isOpen = true;
+  bool isOpen = false;
   String imageName;
   String lineOneString;
   String lineTwoString;
 
+  //点击确定按钮的事件
+  VoidCallback  doneButtonClidck;
+
+
   OrderSettingWidget(
-      {this.imageName,
+      {Key key,
+        this.imageName,
       this.lineOneString,
-      this.lineTwoString}); //  OrderSettingWidget({})
+      this.lineTwoString,
+      this.doneButtonClidck}):super(key : key){
+
+
+
+  } //  OrderSettingWidget({})
 
   Widget get centView; //子类去实现
+
 
   @override
   _OrderSettingWidgetState createState() => _OrderSettingWidgetState();
 }
 
 class _OrderSettingWidgetState extends State<OrderSettingWidget> {
+
   String btnTitle() {
     return widget.isOpen ? 'DONE' : 'MOTIFY';
   }
@@ -54,7 +66,11 @@ class _OrderSettingWidgetState extends State<OrderSettingWidget> {
       children: <Widget>[
         FlatButton(
             onPressed: () {
+              if(widget.isOpen){
+                widget.doneButtonClidck();
+              }
               widget.isOpen = !widget.isOpen;
+
               setState(() {});
             },
             child: Text(btnTitle())),
@@ -71,6 +87,10 @@ class _OrderSettingWidgetState extends State<OrderSettingWidget> {
   }
 
   get list {
+
+
+//    return <Widget>[v1, vCenter, v2];
+
     if (widget.isOpen) {
       return <Widget>[v1, vCenter, v2];
     } else {
@@ -89,19 +109,46 @@ class _OrderSettingWidgetState extends State<OrderSettingWidget> {
   }
 }
 
+//用户设置收获地址widget
 class AddressSettingWidget extends OrderSettingWidget {
   UserAddressInfo addressModel;
 
-  AddressSettingWidget({this.addressModel}) : super();
+  AddressSettingWidgetDetial centerWidget;
+
+
+
+//todo 修改父类的属性
+  AddressSettingWidget({Key key ,this.addressModel,@required doneButtonClidck}) : super(key:key,doneButtonClidck:doneButtonClidck);
 
   @override
-  // TODO: implement centView
-  Widget get centView {
-    return AddressSettingWidgetDetial();
+  AddressSettingWidgetDetial get centView {
+    return centerWidget =AddressSettingWidgetDetial(addressModel: addressModel,);
   }
+
+  //拿到现在修改后的用户信息
+  UserAddressInfo currentAddressInfo(){
+
+
+
+    print(centerWidget.textEditingControllerFirstName.text);
+
+    return UserAddressInfo(firstName:centerWidget.textEditingControllerFirstName.text );
+  }
+
+
 }
 
 class AddressSettingWidgetDetial extends StatefulWidget {
+
+  UserAddressInfo addressModel;
+
+  AddressSettingWidgetDetial({this.addressModel}){
+
+  }
+
+
+  TextEditingController textEditingControllerFirstName =  TextEditingController();
+
   @override
   _AddressSettingWidgetDetialState createState() =>
       _AddressSettingWidgetDetialState();
@@ -113,6 +160,20 @@ class _AddressSettingWidgetDetialState
 
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+
+    widget.textEditingControllerFirstName.text = widget.addressModel.firstName;//问题是每次点击修改按钮都会走这个
+
+
+
+  }
+
+  //外界如何拿到地址信息?
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(DP.getDP(25.0)),
@@ -122,6 +183,7 @@ class _AddressSettingWidgetDetialState
             children: <Widget>[
               Expanded(
                 child: TextFormField(
+                  controller: widget.textEditingControllerFirstName,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.black12,
