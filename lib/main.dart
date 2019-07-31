@@ -6,6 +6,7 @@ import 'package:flutter_app_client/page/welcome_page.dart';
 import 'package:flutter_app_client/tool/scoped_model/global_model.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter_app_client/res/colors.dart';
 
 var bus = new EventBus();
 
@@ -110,27 +111,19 @@ class _XHQSTFWState extends State<XHQSTFW> {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: //primaryColor   primarySwatch
-          ThemeData(
-        platform: TargetPlatform.iOS,
-        primaryColor: Color(0xffFFD54F),
-      ), //Colors.yellow[600] type 'Color' is not a subtype of type 'MaterialColor'
-//      iconTheme: IconThemeData(color: Colors.teal),
-      child: toshowWidget != null
-          ? toshowWidget
-          : Scaffold(
-              appBar: new AppBar(
-                leading: Icon(Icons.star),
-                title: Text(DemoLocalizations.of(context).titleBarTitle),
+    return toshowWidget != null
+        ? toshowWidget
+        : Scaffold(
+            appBar: new AppBar(
+              leading: Icon(Icons.star),
+              title: Text(DemoLocalizations.of(context).titleBarTitle),
 
 //          new Text('Welcome to meiqo.'),
-              ),
-              body: Center(
-                child: MqWelcome(),
-              ),
             ),
-    );
+            body: Center(
+              child: MqWelcome(),
+            ),
+          );
   }
 }
 

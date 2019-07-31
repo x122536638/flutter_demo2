@@ -157,6 +157,8 @@ class _User_pageState extends State<User_page>
 
 
   AddressSettingWidget _addressSettingWidget;
+  AddressSettingWidget _addressSettingWidget2;
+  AddressSettingWidget _addressSettingWidget3;
 
   @override
   Widget build(BuildContext context) {
@@ -202,8 +204,20 @@ class _User_pageState extends State<User_page>
                     model.changeUserAddressInfo(_addressSettingWidget.currentAddressInfo());//这儿出错了
                   }),
               Divider(),
+                  _addressSettingWidget2 = AddressSettingWidget(
+                  key:UniqueKey(),
+                  addressModel: model.userAddressInfo,
+                  doneButtonClidck: () {
+                    print('done 事件!!!');
+
+                    //把   AddressSettingWidget 里的centerView里面的数据覆盖  model.userAddressInfo
+                    //
+
+                    model.changeUserAddressInfo(_addressSettingWidget2.currentAddressInfo());//这儿出错了
+                  }),
 //            setting.OrderSettingWidget(),
               Divider(),
+//                  CulturalSettingWidget(),
 //            setting.OrderSettingWidget(),
               Divider(),
               v2,

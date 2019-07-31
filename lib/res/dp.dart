@@ -85,5 +85,9 @@ class DP {
 //  34.54
 
   static double bigFontSize = getDP(34.54);
-  
+
+
+  //设置 用户信息页面padding
+  static double settingUserInfoDetialPadding = getDP(25.0);
+
 }

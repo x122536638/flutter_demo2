@@ -27,7 +27,7 @@ const kseparatedLineColor =  Colors.black26;
 
 const kCircularLineColor  =  Colors.black12;
 
-const kcolorOrange = Color(0xffff6f00);
+const kcolorDeepMainColor = Color(0xffff6f00);
 //const kcolorOrange2 =Theme.of(context).dividerColor);
 
 
@@ -49,4 +49,5 @@ class MainColor{
 
 
   static Color backgroundTextField =  Colors.black12;
+
 }

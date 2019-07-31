@@ -7,54 +7,77 @@ import 'package:flutter_app_client/tool/scoped_model/global_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_app_client/res/colors.dart';
 
-
-
-
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
 
-  UserAddressInfo getCurrentAddressInfo(){
-    
-    
+  UserAddressInfo getCurrentAddressInfo() {
     _state.tabController.index;
     print('sssssss');
     print(_state.tabController.index);
-    AddressSettingWidgetDetial settingWidgetDetial =   _state.settingList[_state.tabController.index];
+    AddressSettingWidgetDetial settingWidgetDetial =
+        _state.settingList[_state.tabController.index];
 
-    return UserAddressInfo(firstName:settingWidgetDetial.textEditingControllerFirstName.text);
-    
+    return UserAddressInfo(
+        firstName: settingWidgetDetial.textEditingControllerFirstName.text);
   }
 
-  HomeWidgetState   _state;
-  
-  
-  
+  HomeWidgetState _state;
 
   @override
   State<StatefulWidget> createState() {
-    return  _state = HomeWidgetState();
+    return _state = HomeWidgetState();
   }
 }
-class HomeWidgetState extends State<HomeScreen> with SingleTickerProviderStateMixin{
 
-
+class HomeWidgetState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   List<AddressSettingWidgetDetial> settingList;
-  
-  
+
   final List<Tab> tabs = <Tab>[
-    new Tab(child: Container(alignment: Alignment(0, 0),child: Text("1"),height: 100,width: 63,decoration: BoxDecoration(border: Border.all(color: MainColor.borderColorLightDarkGary),borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))),),),
-    new Tab(child: Container(alignment: Alignment(0, 0),child: Text("2"),height: 100,width: 63,decoration: BoxDecoration(border: Border.all(color: MainColor.borderColorLightDarkGary),borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))),),),
-
-    new Tab(child: Container(alignment: Alignment(0, 0),child: Text("3"),height: 100,width: 63,decoration: BoxDecoration(border: Border.all(color: MainColor.borderColorLightDarkGary),borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))),),),
-
+    new Tab(
+      child: Container(
+        alignment: Alignment(0, 0),
+        child: Text("1"),
+        height: 100,
+        width: 63,
+        decoration: BoxDecoration(
+            border: Border.all(color: MainColor.borderColorLightDarkGary),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), bottomLeft: Radius.circular(20))),
+      ),
+    ),
+    new Tab(
+      child: Container(
+        alignment: Alignment(0, 0),
+        child: Text("2"),
+        height: 100,
+        width: 63,
+        decoration: BoxDecoration(
+            border: Border.all(color: MainColor.borderColorLightDarkGary),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), bottomLeft: Radius.circular(20))),
+      ),
+    ),
+    new Tab(
+      child: Container(
+        alignment: Alignment(0, 0),
+        child: Text("3"),
+        height: 100,
+        width: 63,
+        decoration: BoxDecoration(
+            border: Border.all(color: MainColor.borderColorLightDarkGary),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), bottomLeft: Radius.circular(20))),
+      ),
+    ),
   ];
   TabController tabController;
+
   @override
   void initState() {
     super.initState();
     tabController = new TabController(vsync: this, length: tabs.length);
-    tabController.addListener((){
-
+    tabController.addListener(() {
       switch (tabController.index) {
         case 0:
           print(1);
@@ -66,83 +89,58 @@ class HomeWidgetState extends State<HomeScreen> with SingleTickerProviderStateMi
           print(3);
           break;
       }
-
     });
-
-
-
-
   }
+
   @override
   void dispose() {
     tabController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-
-
-
-
-
     return ScopedModelDescendant<GlolbModel>(builder: (
-    BuildContext context,
-    Widget child,
-    GlolbModel model,
-    )
-    {
-
-
+      BuildContext context,
+      Widget child,
+      GlolbModel model,
+    ) {
       settingList = tabs.map((Tab tab) {
-        return AddressSettingWidgetDetial(addressModel: model.userAddressInfo,);
+        return AddressSettingWidgetDetial(
+          addressModel: model.userAddressInfo,
+        );
       }).toList();
 
-      return
-        Container(
-
-
-            child: Column(
-
-              children: <Widget>[
-                Container(
-                  alignment: Alignment(1, 0),
-                  height: 40.0,
-                  child: TabBar(
-                    isScrollable: true,
-                    unselectedLabelColor: Colors.grey,
-                    labelColor: Colors.white,
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    tabs: tabs,
-                    controller: tabController,
-                  ),
-                ),
-
-                Container(
-                  height: 444,
-                  child: TabBarView(
-                    controller: tabController,
-                    children: settingList,
-                  ),
-                ),
-
-              ],
-            )
-
-        );
+      return Container(
+          child: Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(right: DP.settingUserInfoDetialPadding),
+            alignment: Alignment(1, 0),
+            height: DP.getDP(36),
+            child: TabBar(
+              isScrollable: true,
+              unselectedLabelColor: Colors.grey,
+              labelColor: Colors.white,
+              indicatorSize: TabBarIndicatorSize.label,
+              labelPadding: EdgeInsets.all(0),
+              indicator: const BoxDecoration(),
+              tabs: tabs,
+              controller: tabController,
+            ),
+          ),
+          Container(
+            height: 444,
+            child: TabBarView(
+              controller: tabController,
+              children: settingList,
+            ),
+          ),
+        ],
+      ));
     });
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 class AddressSettingWidgetDetial extends StatefulWidget {
   UserAddressInfo addressModel;
@@ -150,7 +148,7 @@ class AddressSettingWidgetDetial extends StatefulWidget {
   AddressSettingWidgetDetial({this.addressModel}) {}
 
   TextEditingController textEditingControllerFirstName =
-  TextEditingController();
+      TextEditingController();
 
   @override
   _AddressSettingWidgetDetialState createState() =>
@@ -159,6 +157,8 @@ class AddressSettingWidgetDetial extends StatefulWidget {
 
 class _AddressSettingWidgetDetialState
     extends State<AddressSettingWidgetDetial> {
+  bool check = false;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -173,9 +173,48 @@ class _AddressSettingWidgetDetialState
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(DP.getDP(25.0)),
+      padding: EdgeInsets.fromLTRB(DP.settingUserInfoDetialPadding, 0,
+          DP.settingUserInfoDetialPadding, DP.settingUserInfoDetialPadding),
       child: Column(
         children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text('设置为默认'),
+              Switch.adaptive(
+                  value: check,
+                  onChanged: (v) {
+                    check = v;
+                    setState(() {});
+                  }),
+//              FlatButton(onPressed: (){}, child: Text("deleate"))
+              Expanded(
+                flex: 1,
+                child: Text(''),
+              ),
+              DecoratedBox(
+                  decoration: BoxDecoration(
+                      color: kcolorDeepMainColor,
+                      borderRadius: BorderRadius.circular(DP.getDP(12)), //3像素圆角
+                      boxShadow: [
+                        //阴影
+                        BoxShadow(
+                            color: Colors.black54,
+                            offset: Offset(.5, .5),
+                            blurRadius: .5)
+                      ]),
+                  child: Center(
+                    child: Container(
+                      height: DP.getDP(24),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 0.0, vertical: 0.0),
+                        child: FlatButton(
+                            onPressed: () {}, child: Text("deleate")),
+                      ),
+                    ),
+                  ))
+            ],
+          ),
           Row(
             children: <Widget>[
               Expanded(

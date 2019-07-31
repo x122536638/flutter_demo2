@@ -97,10 +97,13 @@ class _OrderSettingWidgetState extends State<OrderSettingWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Theme(
+      data: ThemeData(primaryColor: kcolorDeepMainColor),
+      child: Container(
 //      height: DP.DP_96,
-      child: Column(
-        children: list,
+        child: Column(
+          children: list,
+        ),
       ),
     );
   }
@@ -135,3 +138,46 @@ class AddressSettingWidget extends OrderSettingWidget {
   }
 }
 
+
+//用户设置收获地址widget
+class CulturalSettingWidget extends OrderSettingWidget {
+  UserAddressInfo addressModel;
+
+  ListView centerWidget;
+
+//todo 修改父类的属性
+  CulturalSettingWidget({Key key, this.addressModel, @required doneButtonClidck})
+      : super(key: key, doneButtonClidck: doneButtonClidck);
+
+//  @override
+//  AddressSettingWidgetDetial get centView {
+//    return centerWidget = AddressSettingWidgetDetial(
+//      addressModel: addressModel,
+//    );
+//  }
+
+  Widget buildItem(BuildContext context, int index) {
+    return Text('$index   222222');
+  }
+    @override
+  ListView get centView {
+
+    return centerWidget =  ListView.separated(
+      itemCount: 10,
+      //列表项构造器
+//                itemBuilder: (BuildContext context, int index) {
+//                  return ListTile(title: Text("$index"));
+//                },
+      itemBuilder: buildItem,
+      //分割器构造器
+      separatorBuilder: (BuildContext context, int index) {
+        return Divider(
+          color: kseparatedLineColor,
+        );
+      },
+    );
+
+  }
+
+
+}

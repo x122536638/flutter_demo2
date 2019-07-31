@@ -139,7 +139,7 @@ class _ShopCarOrderPageState extends State<ShopCarOrderPage> {
                       },
                     ));
                 },
-                color: kcolorOrange,
+                color: kcolorDeepMainColor,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
 //                shape: drawShape('radius'),
                 child: Text('pay', style: TextStyle(color: Colors.white)),

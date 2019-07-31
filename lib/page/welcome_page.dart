@@ -145,66 +145,63 @@ class _MqWelcomeState extends State<MqWelcome> {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(primaryColor: Colors.black38),
-      child: ListView(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(30),
-            child: Text(
-              "everyThingdadsasdeveryThingdadsasdeveryThingdadsasd",
-              textAlign: TextAlign.center,
+    return ListView(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(30),
+          child: Text(
+            "everyThingdadsasdeveryThingdadsasdeveryThingdadsasd",
+            textAlign: TextAlign.center,
 
-              style: TextStyle(fontFamily: 'Courier',fontSize: 24,color: kColorNav),
-            ),
+            style: TextStyle(fontFamily: 'Courier',fontSize: 24,color: kColorNav),
           ),
-          Padding(
-            padding: EdgeInsets.all(30),
-            child: Text("everyThing .......dadsasd"),
-          ),
-          Container(
-            padding: EdgeInsets.all(20),
-            child: Column(
-              children: <Widget>[
-                w1(),
+        ),
+        Padding(
+          padding: EdgeInsets.all(30),
+          child: Text("everyThing .......dadsasd"),
+        ),
+        Container(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: <Widget>[
+              w1(),
 //            tf1(),
 //          Container(margin: EdgeInsets.only(top: 50),color: Colors.black12,width: 200,child: tf1(),),
-                tf2,
+              tf2,
 //            Text('hhh'),
-                Padding(
-                  padding: const EdgeInsets.only(top: 40),
-                  child: Row(
-                    children: <Widget>[
-                      Spacer(
-                        flex: 30,
+              Padding(
+                padding: const EdgeInsets.only(top: 40),
+                child: Row(
+                  children: <Widget>[
+                    Spacer(
+                      flex: 30,
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: tf1,
+                        color: Colors.black38,
                       ),
-                      Expanded(
-                        child: Container(
-                          child: tf1,
-                          color: Colors.black38,
-                        ),
-                        flex: 40,
-                      ),
-                      Spacer(
-                        flex: 30,
-                      ),
-                    ],
-                  ),
+                      flex: 40,
+                    ),
+                    Spacer(
+                      flex: 30,
+                    ),
+                  ],
                 ),
+              ),
 
-                Container(
-                  padding: EdgeInsets.only(top: 20),
-                  child: FlatButton(
-                    child: Text("START"),
-                    onPressed: _start,
-                  ),
-                  alignment: Alignment.centerRight,
+              Container(
+                padding: EdgeInsets.only(top: 20),
+                child: FlatButton(
+                  child: Text("START"),
+                  onPressed: _start,
                 ),
-              ],
-            ),
-          )
-        ],
-      ),
+                alignment: Alignment.centerRight,
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 

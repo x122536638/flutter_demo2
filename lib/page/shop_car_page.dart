@@ -193,7 +193,7 @@ class _ShopCarPageState extends State<ShopCarPage> {
 //                      },
 //                    ));
                 },
-                color: kcolorOrange,
+                color: kcolorDeepMainColor,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
 //                shape: drawShape('radius'),
                 child: Text('check out', style: TextStyle(color: Colors.white)),
