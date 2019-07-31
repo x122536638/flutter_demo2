@@ -197,7 +197,7 @@ class CulturalSettingWidget extends OrderSettingWidget {
         separatorBuilder: (BuildContext context, int index) {
           return Container(
             height: DP.getDP(8.0),
-            color: Colors.white,
+//            color: Colors.white,
           );
         },
       ),
