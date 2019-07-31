@@ -50,7 +50,7 @@ class MyAppState extends State<MyApp> {
       model: model,
 
       child: MaterialApp(
-        theme: ThemeData(primaryColor: Colors.amberAccent),
+        theme: ThemeData(primaryColor: kcolorMainColor),
         localizationsDelegates: [
           // 本地化的代理类
           GlobalMaterialLocalizations.delegate,

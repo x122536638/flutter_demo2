@@ -1,3 +1,8 @@
+
+import 'font.dart';
+
+
+
 class Constant {
   // timer
   static const int COUNTDOWN_TIME = 10;

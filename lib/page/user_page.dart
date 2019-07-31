@@ -8,7 +8,6 @@ import 'package:flutter_app_client/customView/user_Info_page_widget/setting_user
 import 'package:flutter_app_client/model/user_address_info.dart';
 import 'package:flutter_app_client/page/shop_car_page.dart';
 
-//import 'package:flutter_app_client/page/shop_car_bug_agin.dart';
 import 'package:flutter_app_client/res/dp.dart';
 import 'package:flutter_app_client/tool/scoped_model/global_model.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -26,41 +25,54 @@ class _User_pageState extends State<User_page>
   //ListTile
   get v1 {
     return Container(
-      decoration: BoxDecoration(color: kCheckoutAmber50, boxShadow: [
-        BoxShadow(
-            color: Colors.black26,
-            offset: Offset(0.0, 1.0),
-            blurRadius: 2.0,
-            spreadRadius: 0.0),
-//                BoxShadow(color: Color(0x9900FF00), offset: Offset(1.0, 1.0)),
-//                BoxShadow(color: Color(0xFF0000FF))
-      ]),
-      child: ListTile(
-        leading: ClipOval(
-          child: Container(
-            width: 60,
-            height: 60,
-            color: MainColor.lineSperaColor(context),
-            child: Image.asset(
-              'images/bg4.png',
-              fit: BoxFit.cover,
-//                    width: 30,
-            ),
-          ),
+      color: Colors.white, //因为总体颜色的黄色的 ,但是listtile的阴影需要白色作为底色
+      child: Container(
+        margin: EdgeInsets.only(bottom: 4),
+        decoration: BoxDecoration(
+            boxShadow: [ //阴影
+              BoxShadow(
+                  color:Colors.black26,
+                  offset: Offset(0.0,1.0),
+                  blurRadius: 3.0
+              )
+            ]
+
+
         ),
+        child: Column(
+          children: <Widget>[
+            Container(
+              color: kCheckoutAmber50,
+              child: ListTile(
+                leading: ClipOval(
+                  child: Container(
+                    width: 60,
+                    height: 60,
+                    color: MainColor.lineSperaColor(context),
+                    child: Image.asset(
+                      'images/bg4.png',
+                      fit: BoxFit.cover,
+//                    width: 30,
+                    ),
+                  ),
+                ),
 
 //        leading: CircleAvatar(
 //
 //          backgroundImage: AssetImage('images/bg3.png'),
 //        ),
-        title: Text('Horse'),
-        subtitle: Text('A strong animal'),
-        trailing: FlatButton(
-          onPressed: () {},
-          child: Text('ACCOUNT'),
-          shape: RoundedRectangleBorder(
-              side: BorderSide(color: Color(0x1F000000), width: 1),
-              borderRadius: BorderRadius.circular(15.0)),
+                title: Text('Horse'),
+                subtitle: Text('A strong animal'),
+                trailing: FlatButton(
+                  onPressed: () {},
+                  child: Text('ACCOUNT'),
+                  shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Color(0x1F000000), width: 1),
+                      borderRadius: BorderRadius.circular(15.0)),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -158,7 +170,6 @@ class _User_pageState extends State<User_page>
 
   AddressSettingWidget _addressSettingWidget;
   AddressSettingWidget _addressSettingWidget2;
-  AddressSettingWidget _addressSettingWidget3;
 
   @override
   Widget build(BuildContext context) {
@@ -177,6 +188,8 @@ class _User_pageState extends State<User_page>
       return Scaffold(
         body: Container(
           color: kCheckoutAmber50,
+//          color: Colors.white,
+
           child:
 //
 //      v1,
@@ -188,7 +201,6 @@ class _User_pageState extends State<User_page>
 
 //            SizedBox(height: 18,),
               Container(
-                margin: EdgeInsets.only(top: 3), //上个widget 有个底部阴影
                 color: Colors.white,
                 height: DP.getDP(8.0),
               ),
@@ -217,9 +229,10 @@ class _User_pageState extends State<User_page>
                   }),
 //            setting.OrderSettingWidget(),
               Divider(),
-//                  CulturalSettingWidget(),
+                  CulturalSettingWidget(doneButtonClidck: (){},),
 //            setting.OrderSettingWidget(),
               Divider(),
+                LanguageSettingWidget(doneButtonClidck: (){},),
               v2,
             ],
           ),

@@ -181,7 +181,9 @@ class _AddressSettingWidgetDetialState
             children: <Widget>[
               Text('设置为默认'),
               Switch.adaptive(
+                activeColor: kcolorDeepMainColor,
                   value: check,
+
                   onChanged: (v) {
                     check = v;
                     setState(() {});

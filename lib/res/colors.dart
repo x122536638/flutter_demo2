@@ -27,8 +27,9 @@ const kseparatedLineColor =  Colors.black26;
 
 const kCircularLineColor  =  Colors.black12;
 
-const kcolorDeepMainColor = Color(0xffff6f00);
+const kcolorDeepMainColor = Color(0xFFFFA000);
 //const kcolorOrange2 =Theme.of(context).dividerColor);
+const kcolorMainColor =Color(0xFFFFD54F);
 
 
 class MainColor{
