@@ -3,68 +3,133 @@ import 'package:flutter_app_client/model/user_address_info.dart';
 import 'package:flutter_app_client/page/shop_car_bug_agin.dart';
 import 'package:flutter_app_client/res/colors.dart';
 import 'package:flutter_app_client/res/dp.dart';
+import 'package:flutter_app_client/tool/scoped_model/global_model.dart';
+import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter_app_client/res/colors.dart';
 
 
 
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
+
+  UserAddressInfo getCurrentAddressInfo(){
+    
+    
+    _state.tabController.index;
+    print('sssssss');
+    print(_state.tabController.index);
+    AddressSettingWidgetDetial settingWidgetDetial =   _state.settingList[_state.tabController.index];
+
+    return UserAddressInfo(firstName:settingWidgetDetial.textEditingControllerFirstName.text);
+    
+  }
+
+  HomeWidgetState   _state;
+  
+  
+  
+
   @override
   State<StatefulWidget> createState() {
-    return new HomeWidgetState();
+    return  _state = HomeWidgetState();
   }
 }
 class HomeWidgetState extends State<HomeScreen> with SingleTickerProviderStateMixin{
+
+
+  List<AddressSettingWidgetDetial> settingList;
+  
+  
   final List<Tab> tabs = <Tab>[
-    new Tab(text: "1"),
-    new Tab(text: "2"),
-    new Tab(text: "3")
+    new Tab(child: Container(alignment: Alignment(0, 0),child: Text("1"),height: 100,width: 63,decoration: BoxDecoration(border: Border.all(color: MainColor.borderColorLightDarkGary),borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))),),),
+    new Tab(child: Container(alignment: Alignment(0, 0),child: Text("2"),height: 100,width: 63,decoration: BoxDecoration(border: Border.all(color: MainColor.borderColorLightDarkGary),borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))),),),
+
+    new Tab(child: Container(alignment: Alignment(0, 0),child: Text("3"),height: 100,width: 63,decoration: BoxDecoration(border: Border.all(color: MainColor.borderColorLightDarkGary),borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))),),),
+
   ];
-  TabController _tabController;
+  TabController tabController;
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: tabs.length);
+    tabController = new TabController(vsync: this, length: tabs.length);
+    tabController.addListener((){
+
+      switch (tabController.index) {
+        case 0:
+          print(1);
+          break;
+        case 1:
+          print(2);
+          break;
+        case 2:
+          print(3);
+          break;
+      }
+
+    });
+
+
+
+
   }
   @override
   void dispose() {
-    _tabController.dispose();
+    tabController.dispose();
     super.dispose();
   }
   @override
   Widget build(BuildContext context) {
-    return  Container(
 
 
-      child: Column(
 
-        children: <Widget>[
-          Container(
-            height: 40.0,
-            child: TabBar(
-              isScrollable: true,
-              unselectedLabelColor: Colors.grey,
-              labelColor: Colors.white,
-              indicatorSize: TabBarIndicatorSize.tab,
-              tabs: tabs,
-              controller: _tabController,
-            ),
-          ),
 
-          Container(
-            height: 999,
-            child: TabBarView(
-              controller: _tabController,
-              children: tabs.map((Tab tab) {
-                return AddressSettingWidgetDetial();
-              }).toList(),
-            ),
-          ),
 
-        ],
-      )
+    return ScopedModelDescendant<GlolbModel>(builder: (
+    BuildContext context,
+    Widget child,
+    GlolbModel model,
+    )
+    {
 
-    );
+
+      settingList = tabs.map((Tab tab) {
+        return AddressSettingWidgetDetial(addressModel: model.userAddressInfo,);
+      }).toList();
+
+      return
+        Container(
+
+
+            child: Column(
+
+              children: <Widget>[
+                Container(
+                  alignment: Alignment(1, 0),
+                  height: 40.0,
+                  child: TabBar(
+                    isScrollable: true,
+                    unselectedLabelColor: Colors.grey,
+                    labelColor: Colors.white,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    tabs: tabs,
+                    controller: tabController,
+                  ),
+                ),
+
+                Container(
+                  height: 444,
+                  child: TabBarView(
+                    controller: tabController,
+                    children: settingList,
+                  ),
+                ),
+
+              ],
+            )
+
+        );
+    });
   }
 }
 

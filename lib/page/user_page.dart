@@ -194,13 +194,12 @@ class _User_pageState extends State<User_page>
                     key:UniqueKey(),
                   addressModel: model.userAddressInfo,
                   doneButtonClidck: () {
-
+                    print('done 事件!!!');
 
                     //把   AddressSettingWidget 里的centerView里面的数据覆盖  model.userAddressInfo
                     //
 
-                    model
-                        .changeUserAddressInfo(_addressSettingWidget.currentAddressInfo());
+                    model.changeUserAddressInfo(_addressSettingWidget.currentAddressInfo());//这儿出错了
                   }),
               Divider(),
 //            setting.OrderSettingWidget(),

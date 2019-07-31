@@ -70,7 +70,7 @@ class _OrderSettingWidgetState extends State<OrderSettingWidget> {
               }
               widget.isOpen = !widget.isOpen;
 
-              setState(() {});
+                setState(() {});
             },
             child: Text(btnTitle())),
       ],
@@ -110,7 +110,7 @@ class _OrderSettingWidgetState extends State<OrderSettingWidget> {
 class AddressSettingWidget extends OrderSettingWidget {
   UserAddressInfo addressModel;
 
-  AddressSettingWidgetDetial centerWidget;
+  HomeScreen centerWidget;
 
 //todo 修改父类的属性
   AddressSettingWidget({Key key, this.addressModel, @required doneButtonClidck})
@@ -125,15 +125,13 @@ class AddressSettingWidget extends OrderSettingWidget {
   @override
   HomeScreen get centView {
 
-    return HomeScreen();
+    return centerWidget = HomeScreen();
   }
 
   //拿到现在修改后的用户信息
   UserAddressInfo currentAddressInfo() {
-    print(centerWidget.textEditingControllerFirstName.text);
 
-    return UserAddressInfo(
-        firstName: centerWidget.textEditingControllerFirstName.text);
+   return centerWidget.getCurrentAddressInfo();
   }
 }
 
