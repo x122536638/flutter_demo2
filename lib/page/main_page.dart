@@ -10,6 +10,7 @@ import 'package:flutter_app_client/page/shop_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'orders_page.dart';
+import 'package:flutter_app_client/res/colors.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -102,6 +103,8 @@ class _MainPageState extends State<MainPage>
             ),
             drawer: new MyDrawer(),
             bottomNavigationBar: BottomNavigationBar(
+              backgroundColor:kCheckoutAmber50,
+              showUnselectedLabels: false,
               items: [
                 BottomNavigationBarItem(
                     icon: Icon(Icons.home), title: Text('Shopping')),
