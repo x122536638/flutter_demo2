@@ -15,12 +15,12 @@ import 'package:scoped_model/scoped_model.dart';
 import '../res/colors.dart';
 //page1
 
-class User_page extends StatefulWidget {
+class UserPage extends StatefulWidget {
   @override
-  _User_pageState createState() => _User_pageState();
+  _UserPageState createState() => _UserPageState();
 }
 
-class _User_pageState extends State<User_page>
+class _UserPageState extends State<UserPage>
     with AutomaticKeepAliveClientMixin {
   //ListTile
   get v1 {
@@ -137,7 +137,7 @@ class _User_pageState extends State<User_page>
                     child: Stack(
                       children: <Widget>[
                         Positioned(
-                          child: Text('123131313'),
+                          child: Text('1231322323131231313'),
                           top: 0,
                           left: 0,
                           right: 0,

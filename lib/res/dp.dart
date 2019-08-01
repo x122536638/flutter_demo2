@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'constant.dart';
 
 class DP {
@@ -72,7 +74,9 @@ class DP {
   static const double DP_1327 = 1327 * Constant.UNIT;
 
 
+  static double screenWidth  = window.physicalSize.width/window.devicePixelRatio;
 
+//  print(MediaQuery.of(context).size);     //输出： Size(411.4, 683.4);
 
 
   static const double CarRadius = 30;
@@ -89,5 +93,13 @@ class DP {
 
   //设置 用户信息页面padding
   static double settingUserInfoDetialPadding = getDP(25.0);
+
+
+
+  static double samllPadding  =8.0;
+
+
+
+  static double orders_item_image_radius =  30.0;//订单 item image的圆角角度
 
 }

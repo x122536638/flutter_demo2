@@ -36,6 +36,14 @@ class MainFont{
 
   );
 
+  static  TextStyle orders_totalPriceStyle =  TextStyle(
+
+    fontSize: DP.getDP(16.35),
+    color: MainColor.textColorBlack,
+    fontWeight: FontWeight.w900,
+
+  );
+
 
 
 }

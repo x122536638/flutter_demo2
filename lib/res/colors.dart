@@ -50,5 +50,8 @@ class MainColor{
 
 
   static Color backgroundTextField =  Colors.black12;
+  static Color deepMainColor = Color(0xFFFFA000);
+  static Color deepVeryMainColor = Color(0xFFFF6F00);
+  static Color mainColor =Color(0xFFFFD54F);
 
 }

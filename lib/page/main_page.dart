@@ -9,6 +9,8 @@ import 'package:flutter_app_client/page/shop_page.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'orders_page.dart';
+
 class MainPage extends StatefulWidget {
   @override
 
@@ -29,7 +31,7 @@ class _MainPageState extends State<MainPage>
 //  List pages =['MainPageSub1','MainPageSub1','MainPageSub1'];//问题 这个报错啊
 //  List pages =[MainPageSub1,MainPageSub1,MainPageSub1];//问题 这个报错啊
 //  List pages = [MainPageSub1(), MainPageSub1(), MainPageSub1()];
-  List pages = [ShopPage(), Text('page2'), User_page()];
+  List pages = [ShopPage(), OrdersPage(), UserPage()];
 
   int _selectedIndex = 1;
   int _currentPageViewIndex = 0;
