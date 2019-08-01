@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'orders_page.dart';
 import 'package:flutter_app_client/res/colors.dart';
+import 'package:flutter_app_client/res/my_flutter_app_icons.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -107,11 +108,11 @@ class _MainPageState extends State<MainPage>
               showUnselectedLabels: false,
               items: [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.home), title: Text('Shopping')),
+                    icon: Icon(Icons.autorenew), title: Text('Shopping')),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.business), title: Text('Orders')),
+                    icon: Icon(Icons.assignment), title: Text('Orders')),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.school), title: Text('my meiqo')),
+                    icon: Icon(Icons.assignment_ind), title: Text('my meiqo')),
               ],
               currentIndex: _currentPageViewIndex,
               onTap: onTap, // _onItemTapped,

@@ -115,7 +115,8 @@ class _XHQSTFWState extends State<XHQSTFW> {
         ? toshowWidget
         : Scaffold(
             appBar: new AppBar(
-              leading: Icon(Icons.star),
+              leading: Icon(Icons.mood,color: Colors.red,),
+
               title: Text(DemoLocalizations.of(context).titleBarTitle),
 
 //          new Text('Welcome to meiqo.'),
