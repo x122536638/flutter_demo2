@@ -1,0 +1,32 @@
+{
+  "title":"标题",
+  "greetTo": "你好 {name}",
+  "Home":"主页",
+
+
+  "draw_menu_operations":"操作",
+  "operation_bootom_menu_overview":"预览",
+  "operation_bootom_menu_deliver":"运输",
+  "operation_bootom_menu_weight":"称重",
+  "operation_bootom_menu_return":"退货",
+  "weight_scallId":"扫描店员工号",
+  "weight_scallTotip":"  预称重商品将在称重时被定价。你的工号将会被记录在此过程,请使用你自己的工号。",
+  "return_scallTotip":"  你的工号将会被记录在退货过程,请使用你自己的工号。",
+
+
+  "draw_menu_records":"记录",
+
+  "draw_menu_finance":"财务",
+
+  "draw_menu_settings":"设置",
+  "setting_menu_i18n":"语言设置",
+
+
+
+
+  "draw_menu_info":"关于"
+
+
+
+
+}

@@ -9,7 +9,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_app_client/res/colors.dart';
 
+import 'generated/i18n.dart';
+
 var bus = new EventBus();
+
+
+ValueChanged<Locale> localeChange;
 
 void main() {
   debugPaintSizeEnabled = false;
@@ -18,8 +23,8 @@ void main() {
   runApp(new MyApp(key: globalKey2));
 }
 
-// Locale localeQJ = Locale('zh', 'CN');
-
+//与MyAppState 绑定的全局key
+// globalKey2.currentState.changeLocal(Locale('zh'));  修改语言
 GlobalKey<MyAppState> globalKey2 = new GlobalKey<MyAppState>();
 
 class MyApp extends StatefulWidget {
@@ -52,21 +57,20 @@ class MyAppState extends State<MyApp> {
           // 本地化的代理类
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
-          DemoLocalizationsDelegate.delegate,
+//          DemoLocalizationsDelegate.delegate,
+        S.delegate
         ],
-        supportedLocales: [
-          const Locale('en', 'US'), // 美国英语
-          const Locale('zh', 'CN'), // 中文简体
-          //其它Locales
-        ],
-//      locale: const Locale('en', 'US'),
-        locale: locale,
+        supportedLocales: S.delegate.supportedLocales,
+
+        locale: locale,////自己制定默认语言  后面修改语言依赖这个locale变量
         routes: {
           "MainPage": (context) => MainPage(),
-          "WelcomePage": (context) => XHQLocalizations(
-                child: MqWelcome(), //
-                key: globalKey,
-              ),
+          "WelcomePage": (context) => MqWelcome(),
+
+//              XHQLocalizations(
+//                child: MqWelcome(), //
+//                key: globalKey,
+//              ),
         },
         initialRoute: 'WelcomePage',
 

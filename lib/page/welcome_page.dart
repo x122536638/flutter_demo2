@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_client/generated/i18n.dart';
 
 
 
@@ -16,7 +17,8 @@ class MqWelcome extends StatefulWidget {
 
 class _MqWelcomeState extends State<MqWelcome> {
   final myController = TextEditingController();
-  final myController2 = TextEditingController(text:globalKey.currentState.locale.languageCode );
+  final myController2 = TextEditingController(text:globalKey2.currentState.locale.languageCode );
+
 
   TextFormField textField0;
   TextFormField textField01; /*没用 用controller获取text*/
@@ -62,7 +64,9 @@ class _MqWelcomeState extends State<MqWelcome> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text('Everything you need or want,'),
-              Text(DemoLocalizations.of(context).clickTop),
+//              Text(DemoLocalizations.of(context).clickTop),
+              Text(S.of(context).title),
+
             ],
           ),
         ),
@@ -144,7 +148,7 @@ class _MqWelcomeState extends State<MqWelcome> {
       appBar: new AppBar(
         leading: Icon(Icons.mood,color: Colors.red,),
 
-        title: Text(DemoLocalizations.of(context).titleBarTitle),
+        title: Text(S.of(context).title),
 
 //          new Text('Welcome to meiqo.'),
       ),

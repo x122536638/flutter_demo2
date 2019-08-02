@@ -1,0 +1,27 @@
+{
+  "greetTo": "Hello {name}",
+  "title":"title",
+  "Home":"Home",
+
+  "draw_menu_operations":"Operations",
+  "operation_bootom_menu_overview":"Overview",
+  "operation_bootom_menu_deliver":"Deliver",
+  "operation_bootom_menu_weight":"Weight",
+  "operation_bootom_menu_return":"Return",
+  "weight_scallId":"Scan your coworker ID",
+  "weight_scallTotip":"  Pre-weighted products are priced when weighted. Your ID will be recorded during this session. Use only your own ID.",
+  "return_scallTotip":"  Your ID will be recorded for each return. Use only your own ID.",
+
+  "draw_menu_records":"Records",
+
+  "draw_menu_finance":"Finance",
+
+
+  "draw_menu_settings":"Settings",
+  "setting_menu_i18n":"Language",
+
+
+
+  "draw_menu_info":"Info"
+
+}
