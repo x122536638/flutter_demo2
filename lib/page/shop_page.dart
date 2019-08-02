@@ -4,6 +4,7 @@ import 'package:flutter_app_client/customView/customView.dart';
 import 'package:flutter_app_client/customView/main_page_widget/item_card_widget.dart';
 import 'package:flutter_app_client/page/shop_car_page.dart';
 import 'package:flutter_app_client/res/colors.dart';
+import 'package:flutter_app_client/res/dp.dart';
 //page1
 
 class ShopPage extends StatefulWidget {
@@ -125,38 +126,58 @@ class _ShopPageState extends State<ShopPage>
 //      TESTW();
 
         Scaffold(
-
-
-          
-      body: Container(
-        color: Colors.white,
-        child:
+      body: Stack(
+        children: <Widget>[
+          Container(
+            color: Colors.white,
+            child:
 //
 //      v1,
 
-            ListView(
+                ListView(
 //        shrinkWrap: true,
-          children: <Widget>[
-            v1,
-            IconButton(
-                icon: Icon(Icons.build),
-                onPressed: () {
-                  changeOpenState();
-                }),
-            v2,
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: MainColor.deepVeryMainColor,
-        onPressed: () {
-          //购物车\
-          //  Navigator.of(context).push(
-          //     MaterialPageRoute(fullscreenDialog: true,builder: (context) => ShopCarPage()));
+              children: <Widget>[
+                v1,
+                IconButton(
+                    icon: Icon(Icons.build),
+                    onPressed: () {
+                      changeOpenState();
+                    }),
+                v2,
+              ],
+            ),
+          ),
+          Positioned(
+            child: FloatingActionButton(
+              child: Stack(
+                alignment:AlignmentDirectional.center,
+                children: <Widget>[
+                  Positioned(
+                    child: Text("CARD"),
+                    bottom: DP.getDP(30.0),
+                  ),
+                  Positioned(
+                    child: Text("2"),
+                    top: DP.getDP(30.0),
+                  ),
+                ],
+              ),
+              backgroundColor: MainColor.deepVeryMainColor,
+              onPressed: () {
+                //购物车\
+                //  Navigator.of(context).push(
+                //     MaterialPageRoute(fullscreenDialog: true,builder: (context) => ShopCarPage()));
 
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => ShopCarPage()));
-        },
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => ShopCarPage()));
+              },
+            ),
+            bottom: 20,
+            right: 30,
+            width: DP.getDP(60.0),
+            height: DP.getDP(60.0),
+          )
+        ],
       ),
     );
   }

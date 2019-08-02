@@ -47,10 +47,11 @@ class _ShopCarPageState extends State<ShopCarPage> {
             child: Container(
               padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
-                  color: kCarSelectNubColor,
+                  color: MainColor.backgroundTextField,
                   borderRadius: BorderRadius.circular(5)),
-              width: 200,
+              width: 100,
               child: DropdownButton<String>(
+
                 isExpanded: true,
                 value: dropdown1Value,
                 onChanged: (String newValue) {
@@ -177,21 +178,6 @@ class _ShopCarPageState extends State<ShopCarPage> {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => ShopCarOrderPage()));
 
-//                  ShopCarOrderPage
-//                    Navigator.push(context, MaterialPageRoute<void>(
-//                      builder: (BuildContext context) {
-//                        return Scaffold(
-//                          body: Center(
-//                            child: FlatButton(
-//                              child: Text('POP'),
-//                              onPressed: () {
-//                                Navigator.pop(context);
-//                              },
-//                            ),
-//                          ),
-//                        );
-//                      },
-//                    ));
                 },
                 color: kcolorDeepMainColor,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
