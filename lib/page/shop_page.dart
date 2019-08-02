@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_client/customView/customView.dart';
 import 'package:flutter_app_client/customView/main_page_widget/item_card_widget.dart';
 import 'package:flutter_app_client/page/shop_car_page.dart';
+import 'package:flutter_app_client/res/colors.dart';
 //page1
 
 class ShopPage extends StatefulWidget {
@@ -124,6 +125,9 @@ class _ShopPageState extends State<ShopPage>
 //      TESTW();
 
         Scaffold(
+
+
+          
       body: Container(
         color: Colors.white,
         child:
@@ -144,6 +148,7 @@ class _ShopPageState extends State<ShopPage>
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: MainColor.deepVeryMainColor,
         onPressed: () {
           //购物车\
           //  Navigator.of(context).push(
@@ -152,7 +157,6 @@ class _ShopPageState extends State<ShopPage>
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => ShopCarPage()));
         },
-        child: Icon(Icons.add),
       ),
     );
   }

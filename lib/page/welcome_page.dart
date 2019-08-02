@@ -6,10 +6,8 @@ import 'package:flutter_app_client/generated/i18n.dart';
 
 import 'package:flutter_app_client/main.dart';
 import 'package:flutter_app_client/res/colors.dart';
-import 'package:flutter_app_client/tool/international/MQInternationalization.dart';
 import 'package:flutter_app_client/page/main_page.dart';
-
-
+import 'package:flutter_app_client/res/colors.dart';
 class MqWelcome extends StatefulWidget {
   @override
   _MqWelcomeState createState() => _MqWelcomeState();
@@ -23,18 +21,8 @@ class _MqWelcomeState extends State<MqWelcome> {
   TextFormField textField0;
   TextFormField textField01; /*没用 用controller获取text*/
 
-//如果想拿到TF1的文本  ,ios 做法 是成员变量指向TF1 flutter 好像不好使 用sting类型属性记录住 TF1内容
-
-
-
 
   _start() {
-    print('$context   222222');
-    //拿到textfrom?
-
-
-    print(myController.text);
-
     Navigator.push(context, new MaterialPageRoute(builder: (context) =>  MainPage()));
   }
   @override
@@ -108,7 +96,7 @@ class _MqWelcomeState extends State<MqWelcome> {
             flex: 40,
             child: Container(
               margin: EdgeInsets.only(top: 30),
-              color: Colors.black38,
+              color: MainColor.backgroundTextField,
               child: Row(
                 children: <Widget>[
                   Expanded(
@@ -187,7 +175,8 @@ class _MqWelcomeState extends State<MqWelcome> {
                       Expanded(
                         child: Container(
                           child: tf1,
-                          color: Colors.black38,
+                          color: MainColor.backgroundTextField,
+
                         ),
                         flex: 40,
                       ),
