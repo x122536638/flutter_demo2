@@ -128,23 +128,30 @@ class _ShopCarOrderPageState extends State<ShopCarOrderPage> {
 //
 
               CustomNavBar(
-                  centerWidget: Container(
-                    height: 34,
-                    child: RaisedButton(
+                hiddenBackBTn: false,
+                centerWidget: Positioned(child: Container(
+                    width: 125,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: MainColor.deepVeryMainColor,
+                        boxShadow: [
+                          BoxShadow(
+                              blurRadius: 3,
+                              offset: Offset(0, 3),
+                              color: Colors.black54)
+                        ],
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                            color: kCircularLineColor, width: 0.5)),
+                    child: FlatButton(
+                        child: Text("PAY",style: TextStyle(color: Colors.white),),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => ShopCarBuyAginPage()));
 
-                onPressed: () {
-                    Navigator.push(context, MaterialPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return ShopCarBuyAginPage();
-                      },
-                    ));
-                },
-                color: kcolorDeepMainColor,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
-//                shape: drawShape('radius'),
-                child: Text('pay', style: TextStyle(color: Colors.white)),
-              ),
-                  )),
+
+                        })),),
+              )
             ],
           ),
         ),

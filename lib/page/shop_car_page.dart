@@ -149,42 +149,48 @@ class _ShopCarPageState extends State<ShopCarPage> {
                 ),
               ),
 
-//            Positioned(
-//                  child: Row(
-//                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                    children: <Widget>[
-//                      IconButton(icon: Icon(Icons.keyboard_backspace), onPressed: () {
-//                        Navigator.of(context).pop();
-//                      }),
-//                      FlatButton(onPressed: (){}, child: Text('checkout')),
-//                      IconButton(icon: Icon(Icons.clear), onPressed: () {
-//                        Navigator.of(context).pop();
-//                      }),
-//                    ],
-//                  ),
-//                bottom: 0,
-//              left: 0,
-//              right: 0,
 //
-//
-//              ),
 
               CustomNavBar(
-                  centerWidget: Container(
-                    height: 34,
-                    child: RaisedButton(
-
-                onPressed: () {
-                  Navigator.of(context).push(
+                hiddenBackBTn: true,
+                centerWidget: Positioned(child: Container(
+                                            width: 125,
+                                            height: 40,
+                                            decoration: BoxDecoration(
+                                              color: MainColor.deepVeryMainColor,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                    blurRadius: 3,
+                                                    offset: Offset(0, 3),
+                                                    color: Colors.black54)
+                                              ],
+                                                borderRadius: BorderRadius.circular(20),
+                                                border: Border.all(
+                                                    color: kCircularLineColor, width: 0.5)),
+                                            child: FlatButton(
+                                                child: Text("CHECKOUT",style: TextStyle(color: Colors.white),),
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => ShopCarOrderPage()));
 
-                },
-                color: kcolorDeepMainColor,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
-//                shape: drawShape('radius'),
-                child: Text('check out', style: TextStyle(color: Colors.white)),
-              ),
-                  )),
+
+                                                })),),
+              )
+//                  centerWidget: Container(
+//                    height: 34,
+//                    child: RaisedButton(
+//
+//                onPressed: () {
+//                  Navigator.of(context).push(
+//                      MaterialPageRoute(builder: (context) => ShopCarOrderPage()));
+//
+//                },
+//                color: kcolorDeepMainColor,
+//                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
+////                shape: drawShape('radius'),
+//                child: Text('check out', style: TextStyle(color: Colors.white)),
+//              ),
+//                  )),
             ],
           ),
         ),
