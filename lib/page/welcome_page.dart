@@ -30,15 +30,10 @@ class _MqWelcomeState extends State<MqWelcome> {
     print('$context   222222');
     //拿到textfrom?
 
-//      print(textField01.controller.text);
 
     print(myController.text);
-//    bus.emit("login",MainPage());
 
-//    Navigator.removeRoute(context, route)
-//    Navigator.pop(context, 'Nope!');
     Navigator.push(context, new MaterialPageRoute(builder: (context) =>  MainPage()));
-//  Navigator.replace(context, oldRoute: this, newRoute: null)
   }
   @override
   void didChangeDependencies() {
@@ -145,63 +140,73 @@ class _MqWelcomeState extends State<MqWelcome> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(30),
-          child: Text(
-            "everyThingdadsasdeveryThingdadsasdeveryThingdadsasd",
-            textAlign: TextAlign.center,
+    return Scaffold(
+      appBar: new AppBar(
+        leading: Icon(Icons.mood,color: Colors.red,),
 
-            style: TextStyle(fontFamily: 'Courier',fontSize: 24,color: kColorNav),
+        title: Text(DemoLocalizations.of(context).titleBarTitle),
+
+//          new Text('Welcome to meiqo.'),
+      ),
+
+      body: ListView(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(30),
+            child: Text(
+              "everyThingdadsasdeveryThingdadsasdeveryThingdadsasd",
+              textAlign: TextAlign.center,
+
+              style: TextStyle(fontFamily: 'Courier',fontSize: 24,color: kColorNav),
+            ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(30),
-          child: Text("everyThing .......dadsasd"),
-        ),
-        Container(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            children: <Widget>[
-              w1(),
+          Padding(
+            padding: EdgeInsets.all(30),
+            child: Text("everyThing .......dadsasd"),
+          ),
+          Container(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: <Widget>[
+                w1(),
 //            tf1(),
 //          Container(margin: EdgeInsets.only(top: 50),color: Colors.black12,width: 200,child: tf1(),),
-              tf2,
+                tf2,
 //            Text('hhh'),
-              Padding(
-                padding: const EdgeInsets.only(top: 40),
-                child: Row(
-                  children: <Widget>[
-                    Spacer(
-                      flex: 30,
-                    ),
-                    Expanded(
-                      child: Container(
-                        child: tf1,
-                        color: Colors.black38,
+                Padding(
+                  padding: const EdgeInsets.only(top: 40),
+                  child: Row(
+                    children: <Widget>[
+                      Spacer(
+                        flex: 30,
                       ),
-                      flex: 40,
-                    ),
-                    Spacer(
-                      flex: 30,
-                    ),
-                  ],
+                      Expanded(
+                        child: Container(
+                          child: tf1,
+                          color: Colors.black38,
+                        ),
+                        flex: 40,
+                      ),
+                      Spacer(
+                        flex: 30,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
 
-              Container(
-                padding: EdgeInsets.only(top: 20),
-                child: FlatButton(
-                  child: Text("START"),
-                  onPressed: _start,
+                Container(
+                  padding: EdgeInsets.only(top: 20),
+                  child: FlatButton(
+                    child: Text("START"),
+                    onPressed: _start,
+                  ),
+                  alignment: Alignment.centerRight,
                 ),
-                alignment: Alignment.centerRight,
-              ),
-            ],
-          ),
-        )
-      ],
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 

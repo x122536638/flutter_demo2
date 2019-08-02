@@ -22,6 +22,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
+
   static GlobalKey<ScaffoldState> _globalKey = new GlobalKey();
 
   //
@@ -30,12 +31,10 @@ class _MainPageState extends State<MainPage>
 
   List tabs = ["新闻", "历史", "图片"];
 
-//  List pages =['MainPageSub1','MainPageSub1','MainPageSub1'];//问题 这个报错啊
-//  List pages =[MainPageSub1,MainPageSub1,MainPageSub1];//问题 这个报错啊
-//  List pages = [MainPageSub1(), MainPageSub1(), MainPageSub1()];
+
+
   List pages = [ShopPage(), OrdersPage(), UserPage()];
 
-  int _selectedIndex = 1;
   int _currentPageViewIndex = 0;
 
   @override
@@ -63,89 +62,86 @@ class _MainPageState extends State<MainPage>
 
   Center buildCenter(BuildContext context) {
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(0.0),
-        child: Center(
-          child: Scaffold(
-            key: _globalKey,
-            appBar: AppBar(
-                elevation:0,
-              title: Text(DemoLocalizations.of(context).titleBarTitle),
+      child: Scaffold(
+        key: _globalKey,
+        appBar: AppBar(
+            elevation:0,
+          title: Text('47906'),
+//                  title: Text(DemoLocalizations.of(context).clickTop),
+
 //        Text("app name"),
 //        leading: Icon(Icons.add),//这么加的话 侧拉效果就没了
-              leading: Builder(builder: (BuildContext context) {
-                return IconButton(
-                  icon: Icon(Icons.add),
-                  onPressed: () {
-                    print('anniu 1');
+          leading: Builder(builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(Icons.location_on),
+              onPressed: () {
+                print('anniu 1');
 //              Scaffold.of(context).openDrawer();//获取state的一种方法
 
-                    _globalKey.currentState.openDrawer();
-                  },
+                _globalKey.currentState.openDrawer();
+              },
 
 //
-                );
-              }),
-              actions: <Widget>[
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.share),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.share),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.share),
-                ),
-              ],
+            );
+          }),
+          actions: <Widget>[
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.update),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.favorite),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.email),
+            ),
+          ],
 //        bottom: TabBar(controller: _tabController, tabs: getTabList()),
-            ),
-            drawer: new MyDrawer(),
-            bottomNavigationBar: BottomNavigationBar(
-              backgroundColor:kCheckoutAmber50,
-              showUnselectedLabels: false,
-              items: [
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.autorenew), title: Text('Shopping')),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.assignment), title: Text('Orders')),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.assignment_ind), title: Text('my meiqo')),
-              ],
-              currentIndex: _currentPageViewIndex,
-              onTap: onTap, // _onItemTapped,
-            ),
-            body: new PageView.builder(
-              itemBuilder: (BuildContext context, int index) {
-                return new Navigator(
-                  initialRoute: 'home',
-                  onGenerateRoute: (RouteSettings settings) {
-                    WidgetBuilder builder;
-                    switch (settings.name) {
-                      case 'home':
-                        builder = (BuildContext context) =>  pages[index];
-                        break;
+        ),
+        drawer: new MyDrawer(),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor:kCheckoutAmber50,
+          showUnselectedLabels: false,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_basket), title: Text('Shopping')),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.assignment), title: Text('Orders')),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.assignment_ind), title: Text('my meiqo')),
+          ],
+          currentIndex: _currentPageViewIndex,
+          onTap: onTap, // _onItemTapped,
+        ),
+        body: new PageView.builder(
+          itemBuilder: (BuildContext context, int index) {
+            return new Navigator(
+              initialRoute: 'home',
+              onGenerateRoute: (RouteSettings settings) {
+                WidgetBuilder builder;
+                switch (settings.name) {
+                  case 'home':
+                    builder = (BuildContext context) =>  pages[index];
+                    break;
 //                      case 'demo1':
 //                        builder = (BuildContext context) =>  pages[index];
 //                        break;
-                      default:
-                        throw new Exception('Invalid route: ${settings.name}');
-                    }
+                  default:
+                    throw new Exception('Invalid route: ${settings.name}');
+                }
 
-                    return new MaterialPageRoute(builder: builder, settings: settings);
-                  },
-                );
-//                    pages[index]; //这个报错啊
+                return new MaterialPageRoute(builder: builder, settings: settings);
               },
-              onPageChanged: _pageChange,
-              controller: pageController,
-              itemCount: tabs.length,
-            ),
-
-          ),
+            );
+//                    pages[index]; //这个报错啊
+          },
+          onPageChanged: _pageChange,
+          controller: pageController,
+          itemCount: tabs.length,
         ),
+
       ),
     );
   }
@@ -158,13 +154,6 @@ class _MainPageState extends State<MainPage>
         .toList();
   }
 
-  void _onItemTapped(int value) {
-
-
-    setState(() {
-      _selectedIndex = value;
-    });
-  }
 
 // bottomnaviagtionbar 和 pageview 的联动
   void onTap(int index) {
@@ -200,6 +189,7 @@ class _MyDrawerState extends State<MyDrawer> {
       name = strName;
     });
   }
+
 
   test(var a) {
     name = a;
@@ -243,7 +233,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     child: ClipOval(
                       child: Image.asset(
 //                        "imgs/avatar.png",
-                        "images/11.png",
+                        "images/bg3.png",
                         width: 80,
                         height: 80,
                       ),

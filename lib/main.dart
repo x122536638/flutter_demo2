@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_app_client/page/main_page.dart';
 import 'package:flutter_app_client/tool/EventBus.dart';
 import 'package:flutter_app_client/tool/international/MQInternationalization.dart';
 import 'package:flutter_app_client/page/welcome_page.dart';
@@ -23,6 +24,7 @@ GlobalKey<MyAppState> globalKey2 = new GlobalKey<MyAppState>();
 
 class MyApp extends StatefulWidget {
   MyApp({Key key}) : super(key: key);
+
   @override
   MyAppState createState() => MyAppState();
 }
@@ -32,9 +34,7 @@ class MyAppState extends State<MyApp> {
 
   Locale locale = const Locale('zh', 'CN');
 
-
   final model = GlolbModel();
-
 
   changeLocal(Locale l) {
     setState(() {
@@ -44,11 +44,8 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-  return
-
-    ScopedModel<GlolbModel>(
+    return ScopedModel<GlolbModel>(
       model: model,
-
       child: MaterialApp(
         theme: ThemeData(primaryColor: kcolorMainColor),
         localizationsDelegates: [
@@ -63,21 +60,19 @@ class MyAppState extends State<MyApp> {
           //其它Locales
         ],
 //      locale: const Locale('en', 'US'),
-        locale: locale, //如果修改这个 则用路由估计没问题
+        locale: locale,
+        routes: {
+          "MainPage": (context) => MainPage(),
+          "WelcomePage": (context) => XHQLocalizations(
+                child: MqWelcome(), //
+                key: globalKey,
+              ),
+        },
+        initialRoute: 'WelcomePage',
 
-//      title: DemoLocalizations.of(context).titleBarTitle,//'Welcome to Flutter',
-        home: Builder(builder: (context) {
-          return XHQLocalizations(
-//
-
-            child: XHQSTFW(), //页面转换是不是应该换这个child 而不应该用路由切换
-            key: globalKey,
-          );
-        }),
       ),
-    );}
-
-
+    );
+  }
 }
 
 //class MyApp extends StatelessWidget {
@@ -85,48 +80,7 @@ class MyAppState extends State<MyApp> {
 //
 //}
 
-class XHQSTFW extends StatefulWidget {
-  //是否显示欢迎页
 
-  @override
-  _XHQSTFWState createState() => _XHQSTFWState();
-}
-
-class _XHQSTFWState extends State<XHQSTFW> {
-  Widget toshowWidget;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    bus.on("login", (arg) {
-      // do something
-//      Navigator.push
-      setState(() {
-        toshowWidget = arg;
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return toshowWidget != null
-        ? toshowWidget
-        : Scaffold(
-            appBar: new AppBar(
-              leading: Icon(Icons.mood,color: Colors.red,),
-
-              title: Text(DemoLocalizations.of(context).titleBarTitle),
-
-//          new Text('Welcome to meiqo.'),
-            ),
-            body: Center(
-              child: MqWelcome(),
-            ),
-          );
-  }
-}
 
 //国际化全局key
 
