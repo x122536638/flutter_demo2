@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_app_client/page/main_page.dart';
+import 'package:flutter_app_client/res/font.dart';
 import 'package:flutter_app_client/tool/EventBus.dart';
 import 'package:flutter_app_client/tool/international/MQInternationalization.dart';
 import 'package:flutter_app_client/page/welcome_page.dart';
@@ -48,8 +49,10 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+
+     ThemeData _kCheckoutTheme = _buildCheckoutTheme();
     final mainTheme = ThemeData(
-        fontFamily: 'Rubik',
+        fontFamily: 'Rubik-Medium',
         primaryColor: kcolorMainColor,
 //        primaryColorBrightness:MainColor.deepVeryMainColor,
         inputDecorationTheme: InputDecorationTheme(
@@ -64,7 +67,7 @@ class MyAppState extends State<MyApp> {
     return ScopedModel<GlolbModel>(
       model: model,
       child: MaterialApp(
-        theme: mainTheme,
+        theme: _kCheckoutTheme,
         localizationsDelegates: [
           // 本地化的代理类
           GlobalMaterialLocalizations.delegate,
@@ -92,42 +95,78 @@ class MyAppState extends State<MyApp> {
   }
 }
 
-//class MyApp extends StatelessWidget {
-//
-//
-//}
 
-//国际化全局key
 
-GlobalKey<_XHQLocalizationsState> globalKey =
-    new GlobalKey<_XHQLocalizationsState>();
 
-//国际化widget
+//final ThemeData _kCheckoutTheme = _buildCheckoutTheme();
 
-class XHQLocalizations extends StatefulWidget {
-  final Widget child;
-
-  XHQLocalizations({Key key, this.child}) : super(key: key);
-
-  @override
-  _XHQLocalizationsState createState() => _XHQLocalizationsState();
+IconThemeData _customIconTheme(IconThemeData original) {
+  return original.copyWith(color: kCheckoutGrey800);
 }
 
-class _XHQLocalizationsState extends State<XHQLocalizations> {
-  Locale locale = Locale('en');
-
-  changeLocal(Locale l) {
-    setState(() {
-      locale = l;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Localizations.override(
-      context: context,
-      child: widget.child,
-//      locale: locale,
-    );
-  }
+ThemeData _buildCheckoutTheme() {
+  final ThemeData base = ThemeData();
+  return base.copyWith(
+    colorScheme: kCheckoutColorScheme,
+    accentColor: kCheckouBlack87,
+    primaryColor: kcolorMainColor,
+    buttonColor: kCheckoutAmber500,
+    scaffoldBackgroundColor: Colors.white,
+    cardColor: kCheckoutAmber50,
+    textSelectionColor: kCheckoutAmber100,
+    errorColor: kCheckoutErrorRed,
+    buttonTheme: const ButtonThemeData(
+      colorScheme: kCheckoutColorScheme,
+      textTheme: ButtonTextTheme.normal,
+      buttonColor: kCheckoutAmber100,
+    ),
+    primaryIconTheme: _customIconTheme(base.iconTheme),
+//    inputDecorationTheme:
+//    const InputDecorationTheme(border: CutCornersBorder()),
+    textTheme: _buildCheckoutTextTheme(base.textTheme),
+    primaryTextTheme: _buildCheckoutTextTheme(base.primaryTextTheme),
+    accentTextTheme: _buildCheckoutTextTheme(base.accentTextTheme),
+    iconTheme: _customIconTheme(base.iconTheme),
+  );
 }
+
+TextTheme _buildCheckoutTextTheme(TextTheme base) {
+  return base
+      .copyWith(
+    headline: base.headline.copyWith(fontWeight: FontWeight.w500),
+    title: base.title.copyWith(fontSize: fFontSize20),
+    caption: base.caption.copyWith(
+      fontWeight: FontWeight.w400,
+      fontSize: fFontSize14,
+    ),
+    body2: base.body2.copyWith(
+      fontWeight: FontWeight.w500,
+      fontSize: fFontSize16,
+    ),
+//    button: base.button.copyWith(
+//      fontWeight: FontWeight.w700,
+//      fontSize: fFontSize24,
+//    ),
+  )
+      .apply(
+    fontFamily: 'Rubik-Medium',
+    displayColor: kCheckoutGrey800,
+    bodyColor: kCheckoutGrey800,
+  );
+}
+
+const ColorScheme kCheckoutColorScheme = ColorScheme(
+  primary: kcolorMainColor,
+  primaryVariant: kcolorMainColor,
+  secondary: kCheckoutAmber50,
+  secondaryVariant: kCheckoutGrey800,
+  surface: kCheckoutGrey50,
+  background: kCheckoutAmber50,
+  error: kCheckoutErrorRed,
+  onPrimary: kCheckoutGrey800,
+  onSecondary: kCheckoutGrey800,
+  onSurface: kCheckoutGrey800,
+  onBackground: kCheckoutGrey800,
+  onError: kCheckoutGrey50,
+  brightness: Brightness.light,
+);

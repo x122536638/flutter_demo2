@@ -103,4 +103,4 @@ flutter:
   fonts:
     - family: Rubik-Medium
       fonts:
-        - asset: lib/fonts/Rubik-Medium.ttf
+        - asset: fonts/Rubik-Medium.ttf

@@ -49,7 +49,7 @@ class MainColor{//
   static Color  get borderColorLightDarkGary => Color(0x1F000000);
 
 
-   static Color get backgroundTextField => Color.fromARGB(230,233, 236, 236);//255设置不透明  Colors.black12;//
+   static Color get backgroundTextField => Colors.black12;//Color.fromARGB(230,233, 236, 236);//255设置不透明  Colors.black12;//
   static Color get  deepMainColor => Color(0xFFFFA000);
   static Color  get deepVeryMainColor => Color(0xFFFF6F00);
   static Color  get mainColor => Color(0xFFFFD54F);
