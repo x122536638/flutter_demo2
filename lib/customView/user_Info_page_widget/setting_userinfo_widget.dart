@@ -102,7 +102,7 @@ class _OrderSettingWidgetState extends State<OrderSettingWidget> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeData(primaryColor: kcolorDeepMainColor),
+      data: Theme.of(context).copyWith(primaryColor: MainColor.deepVeryMainColor),
       child: Container(
 //        color: kCheckoutAmber50,
 //      height: DP.DP_96,

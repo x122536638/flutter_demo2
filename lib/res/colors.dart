@@ -32,26 +32,27 @@ const kcolorDeepMainColor = Color(0xFFFFA000);
 const kcolorMainColor =Color(0xFFFFD54F);
 
 
-class MainColor{
+class MainColor{//
 
-  static Color lineSperaColor(BuildContext context){
+  static Color  lineSperaColor(BuildContext context){
     return Theme.of(context).dividerColor;
   }
 
 
   //0x99000000
 
-  static Color textColorMiddle = Color(0x99000000);
+  static Color get  textColorMiddle => Color(0x99000000);
 
-  static Color textColorBlack = Color(0xDE000000);
-
-
-  static Color borderColorLightDarkGary = Color(0x1F000000);
+  static Color get  textColorBlack => Color(0xDE000000);
 
 
-  static Color backgroundTextField =  Colors.black12;
-  static Color deepMainColor = Color(0xFFFFA000);
-  static Color deepVeryMainColor = Color(0xFFFF6F00);
-  static Color mainColor =Color(0xFFFFD54F);
+  static Color  get borderColorLightDarkGary => Color(0x1F000000);
+
+
+   static Color get backgroundTextField => Color.fromARGB(230,233, 236, 236);//255设置不透明  Colors.black12;//
+  static Color get  deepMainColor => Color(0xFFFFA000);
+  static Color  get deepVeryMainColor => Color(0xFFFF6F00);
+  static Color  get mainColor => Color(0xFFFFD54F);
+  static Color get lightMainColor => Color(0xFFFFF8E1);
 
 }

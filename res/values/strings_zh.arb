@@ -10,7 +10,7 @@
   "operation_bootom_menu_weight":"称重",
   "operation_bootom_menu_return":"退货",
   "weight_scallId":"扫描店员工号",
-  "weight_scallTotip":"  预称重商品将在称重时被定价。你的工号将会被记录在此过程,请使用你自己的工号。",
+  "weight_scallTotip":"预称重商品将在称重时被定价。你的工号将会被记录在此过程,请使用你自己的工号。",
   "return_scallTotip":"  你的工号将会被记录在退货过程,请使用你自己的工号。",
 
 

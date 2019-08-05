@@ -101,6 +101,6 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   fonts:
-    - family: MyFlutterApp
+    - family: Rubik-Medium
       fonts:
-        - asset: fonts/MyFlutterApp.ttf
+        - asset: lib/fonts/Rubik-Medium.ttf

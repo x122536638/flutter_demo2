@@ -13,7 +13,6 @@ import 'generated/i18n.dart';
 
 var bus = new EventBus();
 
-
 ValueChanged<Locale> localeChange;
 
 void main() {
@@ -49,20 +48,35 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    final mainTheme = ThemeData(
+        fontFamily: 'Rubik',
+        primaryColor: kcolorMainColor,
+//        primaryColorBrightness:MainColor.deepVeryMainColor,
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: MainColor.backgroundTextField,
+//          hoverColor: MainColor.deepVeryMainColor,
+
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: MainColor.deepVeryMainColor)),
+        ));
+
     return ScopedModel<GlolbModel>(
       model: model,
       child: MaterialApp(
-        theme: ThemeData(primaryColor: kcolorMainColor),
+        theme: mainTheme,
         localizationsDelegates: [
           // 本地化的代理类
           GlobalMaterialLocalizations.delegate,
+
           GlobalWidgetsLocalizations.delegate,
 //          DemoLocalizationsDelegate.delegate,
-        S.delegate
+          S.delegate
         ],
         supportedLocales: S.delegate.supportedLocales,
 
-        locale: locale,////自己制定默认语言  后面修改语言依赖这个locale变量
+        locale: locale,
+        ////自己制定默认语言  后面修改语言依赖这个locale变量
         routes: {
           "MainPage": (context) => MainPage(),
           "WelcomePage": (context) => MqWelcome(),
@@ -73,7 +87,6 @@ class MyAppState extends State<MyApp> {
 //              ),
         },
         initialRoute: 'WelcomePage',
-
       ),
     );
   }
@@ -83,8 +96,6 @@ class MyAppState extends State<MyApp> {
 //
 //
 //}
-
-
 
 //国际化全局key
 

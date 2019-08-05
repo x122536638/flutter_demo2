@@ -1,13 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app_client/generated/i18n.dart';
-
-
 
 import 'package:flutter_app_client/main.dart';
 import 'package:flutter_app_client/res/colors.dart';
 import 'package:flutter_app_client/page/main_page.dart';
 import 'package:flutter_app_client/res/colors.dart';
+
 class MqWelcome extends StatefulWidget {
   @override
   _MqWelcomeState createState() => _MqWelcomeState();
@@ -15,16 +13,19 @@ class MqWelcome extends StatefulWidget {
 
 class _MqWelcomeState extends State<MqWelcome> {
   final myController = TextEditingController();
-  final myController2 = TextEditingController(text:globalKey2.currentState.locale.languageCode );
-
+  final myController2 =
+  TextEditingController(text: globalKey2.currentState.locale.languageCode);
 
   TextFormField textField0;
-  TextFormField textField01; /*没用 用controller获取text*/
+  TextFormField textField01;
 
+  /*没用 用controller获取text*/
 
   _start() {
-    Navigator.push(context, new MaterialPageRoute(builder: (context) =>  MainPage()));
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => MainPage()));
   }
+
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
@@ -44,8 +45,8 @@ class _MqWelcomeState extends State<MqWelcome> {
     return Row(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: Icon(Icons.label),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          child: Container(width:60,child: Icon(Icons.label,size: 38,)),
         ),
         Expanded(
           child: Column(
@@ -53,8 +54,8 @@ class _MqWelcomeState extends State<MqWelcome> {
             children: <Widget>[
               Text('Everything you need or want,'),
 //              Text(DemoLocalizations.of(context).clickTop),
-              Text(S.of(context).title),
-
+            SizedBox(height: 5,),
+              Text(S.of(context).weight_scallTotip),
             ],
           ),
         ),
@@ -72,46 +73,42 @@ class _MqWelcomeState extends State<MqWelcome> {
     ),
     autovalidate: true,
     validator: (v) {
-      return v.trim().length > 5 ? null : "不能为小于5";
+      return v.trim().length > 5
+          ? null
+          : "Sorry, your zip is not supported yet.";
     },
   );
 
-  Widget get tf2 {
-    return FlatButton(
-      //因为按钮默认有内边距
-      padding: EdgeInsets.all(0),
-      onPressed: () {
-        print('按钮点击了');
+  Widget get selectLangueWidget {
+    return Center(
+      child: FlatButton(
+        onPressed: () {
+          print('按钮点击了');
 //        tf0.controller.text = 'ss';//问题 这个字符怎么动态改变
 //        tf0.controller.text = globalKey.currentState.locale.languageCode;
 
-        showAlertDialog(context);
-      },
-      child: Row(
-        children: <Widget>[
-          Spacer(
-            flex: 30,
-          ),
-          Expanded(
-            flex: 40,
-            child: Container(
-              margin: EdgeInsets.only(top: 30),
+          showAlertDialog(context);
+        },
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(5),
+          child: Container(
+            width: 156,
+//            height: 56,
+//            margin: EdgeInsets.only(top: 30),
+            decoration: BoxDecoration(
               color: MainColor.backgroundTextField,
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    flex: 8,
-                    child: tf0,
-                  ),
-                  Expanded(flex: 2, child: Icon(Icons.arrow_drop_down)),
-                ],
-              ),
+            ),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 8,
+                  child: tf0,
+                ),
+                Expanded(flex: 2, child: Icon(Icons.arrow_drop_down)),
+              ],
             ),
           ),
-          Spacer(
-            flex: 30,
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -121,6 +118,7 @@ class _MqWelcomeState extends State<MqWelcome> {
       enabled: false,
       controller: myController2,
       decoration: InputDecoration(
+          fillColor: MainColor.backgroundTextField,
           labelText: "选择语言",
 //          hintText: globalKey.currentState.locale.languageCode,
 
@@ -129,41 +127,49 @@ class _MqWelcomeState extends State<MqWelcome> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        leading: Icon(Icons.mood,color: Colors.red,),
+        leading: Icon(
+          Icons.mood,
+          color: Colors.red,
+        ),
 
         title: Text(S.of(context).title),
 
 //          new Text('Welcome to meiqo.'),
       ),
-
       body: ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.fromLTRB(58, 60, 58, 0),
             child: Text(
-              "everyThingdadsasdeveryThingdadsasdeveryThingdadsasd",
+              "Everything you need or want",
               textAlign: TextAlign.center,
-
-              style: TextStyle(fontFamily: 'Courier',fontSize: 24,color: kColorNav),
+              style: TextStyle(
+                  fontFamily: 'Rubik-Medium', fontSize: 24, color: kColorNav),
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(30),
-            child: Text("everyThing .......dadsasd"),
+            padding: EdgeInsets.fromLTRB(58, 15, 58, 0),
+            child: Text("Right at your fingertip." ,textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'Rubik-Medium', fontSize: 24,fontWeight: FontWeight.w600,  color: MainColor.deepVeryMainColor),),
           ),
+          SizedBox(height: 20,),
           Container(
-            padding: EdgeInsets.all(20),
+            color: MainColor.lightMainColor,
+            padding: EdgeInsets.fromLTRB(20, 8, 20, 20),
             child: Column(
               children: <Widget>[
                 w1(),
-//            tf1(),
+                SizedBox(
+                  height: 40,
+                ),
+//              tf1(),
 //          Container(margin: EdgeInsets.only(top: 50),color: Colors.black12,width: 200,child: tf1(),),
-                tf2,
+                selectLangueWidget,
 //            Text('hhh'),
                 Padding(
                   padding: const EdgeInsets.only(top: 40),
@@ -173,10 +179,14 @@ class _MqWelcomeState extends State<MqWelcome> {
                         flex: 30,
                       ),
                       Expanded(
-                        child: Container(
-                          child: tf1,
-                          color: MainColor.backgroundTextField,
-
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: Container(
+                            child: tf1,
+                            decoration: BoxDecoration(
+                              color: MainColor.backgroundTextField,
+                            ),
+                          ),
                         ),
                         flex: 40,
                       ),
@@ -237,3 +247,4 @@ class _MqWelcomeState extends State<MqWelcome> {
         });
   }
 }
+

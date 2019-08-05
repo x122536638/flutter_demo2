@@ -255,10 +255,9 @@ class _AddressSettingWidgetDetialState
               Expanded(
                 child: TextFormField(
                   decoration: InputDecoration(
-                    filled: true,
-                    fillColor: MainColor.backgroundTextField,
+
                     labelText: "street1",
-//                      hintText: "firstname",
+                      hintText: "红花岗泽湖路",
                   ),
                 ),
                 flex: 1,

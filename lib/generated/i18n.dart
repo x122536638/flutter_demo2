@@ -32,9 +32,9 @@ class S implements WidgetsLocalizations {
   String get operation_bootom_menu_weight => "Weight";
   String get return_scallTotip => "  Your ID will be recorded for each return. Use only your own ID.";
   String get setting_menu_i18n => "Language";
-  String get title => "title";
+  String get title => "Welcome to meiqo";
   String get weight_scallId => "Scan your coworker ID";
-  String get weight_scallTotip => "  Pre-weighted products are priced when weighted. Your ID will be recorded during this session. Use only your own ID.";
+  String get weight_scallTotip => "Pre-weighted products are priced when weighted. Your ID will be recorded during this session. Use only your own ID.";
 }
 
 class $en extends S {
@@ -56,7 +56,7 @@ class $zh extends S {
   @override
   String get draw_menu_records => "记录";
   @override
-  String get weight_scallTotip => "  预称重商品将在称重时被定价。你的工号将会被记录在此过程,请使用你自己的工号。";
+  String get weight_scallTotip => "预称重商品将在称重时被定价。你的工号将会被记录在此过程,请使用你自己的工号。";
   @override
   String get title => "标题";
   @override
