@@ -42,24 +42,27 @@ class _OrderItemState extends State<OrderItem> {
   @override
   Widget build(BuildContext context) {
     List data = List.generate(10, (int index) {
-      return Container(
-        height: 48,
-        child: Row(
-          children: <Widget>[
+      return DefaultTextStyle(
+        style: Theme.of(context).textTheme.body1,
+        child: Container(
+          height: 48,
+          child: Row(
+            children: <Widget>[
 
-            Expanded(
-              flex: 20,
-              child: Text('1x'),
-            ),
-            Expanded(
-              flex: 60,
-              child: Text('body'),
-            ),
-            Expanded(
-              flex: 20,
-              child: Text('\$12'),
-            ),
-          ],
+              Container(
+                width: 50,
+                child: Text('1x'),
+              ),
+              Expanded(
+                flex: 60,
+                child: Text('body'),
+              ),
+              Container(
+                width: 50,
+                child: Text('\$12'),
+              ),
+            ],
+          ),
         ),
       );
     });
@@ -100,14 +103,14 @@ class _OrderItemState extends State<OrderItem> {
                               style: MainFont.userSettingTextStyle),
                         ),
                         Container(
-                            width: 100,
+                            width: 80,
                             height: 30,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: Border.all(
                                     color: kCircularLineColor, width: 0.5)),
                             child: FlatButton(
-                                child: Text("help"), onPressed: () {}))
+                                child: Text("HELP"), onPressed: () {}))
                       ],
                     ),
                     Text('JAN 2019 7 31 2:00pm'),
@@ -157,7 +160,7 @@ class _OrderItemState extends State<OrderItem> {
                                           color: kCircularLineColor,
                                           width: 0.5)),
                                   child: FlatButton(
-                                      child: Text("reorder",style: TextStyle(color: Colors.white,fontSize: 16),), onPressed: () {})),
+                                      child: Text("REORDER",style: Theme.of(context).textTheme.button.copyWith(color: Colors.white),), onPressed: () {})),
                             ],
                           ),
                         ],

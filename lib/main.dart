@@ -55,7 +55,7 @@ class MyAppState extends State<MyApp> {
     );
     return base.copyWith(
       primaryColor: kcolorMainColor,
-        errorColor:kCheckoutErrorRed,
+      errorColor: kCheckoutErrorRed,
       textTheme: _buildShrineTextTheme(base.textTheme),
       inputDecorationTheme: InputDecorationTheme(
         //设置tf的labeltext
@@ -94,10 +94,7 @@ class MyAppState extends State<MyApp> {
             fontFamily: MainFont.mainFontMedium,
           ),
           title: base.title.copyWith(fontSize: 24.0),
-          body1: base.body1.copyWith(
-            color: MainColor.textColorMiddle,
-            fontFamily: MainFont.mainFontRegular,
-          ),
+
           //TF 错误信息
           caption: base.caption.copyWith(
             fontWeight: FontWeight.w400,
@@ -115,19 +112,25 @@ class MyAppState extends State<MyApp> {
             color: MainColor.textColorBlack,
             fontFamily: MainFont.mainFontMedium,
           ),
+
+          body1: base.body1.copyWith(
+            fontSize: 14.22,
+            letterSpacing: 0.25,
+            color: MainColor.textColorBlack,
+            fontFamily: MainFont.mainFontRegular,
+          ),
           body2: base.body2.copyWith(
             fontSize: 14.22,
             letterSpacing: 0.25,
             color: MainColor.textColorMiddle,
             fontFamily: MainFont.mainFontRegular,
           ),
-        button:TextStyle(
-          fontSize: 14.22,
-          letterSpacing: 1.25,
-          color: MainColor.textColorMiddle,
-          fontFamily: MainFont.mainFontMedium,
-
-        ),
+          button: TextStyle(
+            fontSize: 14.22,
+            letterSpacing: 1.25,
+            color: MainColor.textColorMiddle,
+            fontFamily: MainFont.mainFontMedium,
+          ),
         )
         .apply(
 //      fontFamily: 'Rubik-Medium',//如果上边的 body1或者title设置颜色 会被displayColor 覆盖
@@ -138,7 +141,6 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData _kCheckoutTheme = _buildCheckoutTheme();
     final mainTheme = ThemeData(
         fontFamily: 'Rubik-Medium',
         primaryColor: kcolorMainColor,
@@ -188,73 +190,3 @@ IconThemeData _customIconTheme(IconThemeData original) {
   return original.copyWith(color: kCheckoutGrey800);
 }
 
-ThemeData _buildCheckoutTheme() {
-  final ThemeData base = ThemeData();
-  return base.copyWith(
-    colorScheme: kCheckoutColorScheme,
-    accentColor: kCheckouBlack87,
-    primaryColor: kcolorMainColor,
-    buttonColor: kCheckoutAmber500,
-    scaffoldBackgroundColor: Colors.white,
-    cardColor: kCheckoutAmber50,
-    textSelectionColor: kCheckoutAmber100,
-    errorColor: kCheckoutErrorRed,
-    buttonTheme: const ButtonThemeData(
-      colorScheme: kCheckoutColorScheme,
-      textTheme: ButtonTextTheme.normal,
-      buttonColor: kCheckoutAmber100,
-    ),
-    primaryIconTheme: _customIconTheme(base.iconTheme),
-//    inputDecorationTheme:
-//    const InputDecorationTheme(border: CutCornersBorder()),
-    textTheme: _buildCheckoutTextTheme(base.textTheme),
-    primaryTextTheme: _buildCheckoutTextTheme(base.primaryTextTheme),
-    accentTextTheme: _buildCheckoutTextTheme(base.accentTextTheme),
-    iconTheme: _customIconTheme(base.iconTheme),
-  );
-}
-
-TextTheme _buildCheckoutTextTheme(TextTheme base) {
-  return base
-      .copyWith(
-        headline: base.headline.copyWith(fontWeight: FontWeight.w500),
-        title: base.title.copyWith(fontSize: fFontSize20),
-        caption: base.caption.copyWith(
-          fontWeight: FontWeight.w400,
-          fontSize: fFontSize14,
-        ),
-        body2: base.body2.copyWith(
-          fontWeight: FontWeight.w500,
-          fontSize: fFontSize16,
-        ),
-        body1: base.body1.copyWith(
-          fontWeight: FontWeight.w400,
-          fontSize: 14,
-        ),
-//    button: base.button.copyWith(
-//      fontWeight: FontWeight.w700,
-//      fontSize: fFontSize24,
-//    ),
-      )
-      .apply(
-        fontFamily: 'Rubik-Medium',
-        displayColor: kCheckoutGrey800,
-        bodyColor: kCheckoutGrey800,
-      );
-}
-
-const ColorScheme kCheckoutColorScheme = ColorScheme(
-  primary: kcolorMainColor,
-  primaryVariant: kcolorMainColor,
-  secondary: kCheckoutAmber50,
-  secondaryVariant: kCheckoutGrey800,
-  surface: kCheckoutGrey50,
-  background: kCheckoutAmber50,
-  error: kCheckoutErrorRed,
-  onPrimary: kCheckoutGrey800,
-  onSecondary: kCheckoutGrey800,
-  onSurface: kCheckoutGrey800,
-  onBackground: kCheckoutGrey800,
-  onError: kCheckoutGrey50,
-  brightness: Brightness.light,
-);

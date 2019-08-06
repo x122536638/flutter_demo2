@@ -50,7 +50,7 @@ class _ShopCarOrderPageState extends State<ShopCarOrderPage> {
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   child: Text(
                     "order summary",
-                    style: TextStyle(color: Colors.orange, fontSize: 24),
+                    style: Theme.of(context).textTheme.headline,
                   ),
                 ),
               ),
@@ -69,43 +69,46 @@ class _ShopCarOrderPageState extends State<ShopCarOrderPage> {
                   ListView(
                     children: <Widget>[
 
-                      Table(
-                        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                      DefaultTextStyle
+                        (style: Theme.of(context).textTheme.body1,
+                        child: Table(
+                          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
 //                    defaultColumnWidth: FixedColumnWidth(30.0),
 
-                        columnWidths: const <int, TableColumnWidth>{
-                          0: FixedColumnWidth(20.0),
-                          1: FixedColumnWidth(100.0),
-                          2: FixedColumnWidth(20.0),
-                        },
-                        border: TableBorder(horizontalInside: BorderSide(width: 0.5,color: Theme.of(context).dividerColor)),
-                        children:  <TableRow>[
-                          TableRow(
-                            children: <Widget>[
+                          columnWidths: const <int, TableColumnWidth>{
+                            0: FixedColumnWidth(50.0),
+                            1: FlexColumnWidth(100.0),
+                            2: FixedColumnWidth(50.0),
+                          },
+                          border: TableBorder(horizontalInside: BorderSide(width: 0.5,color: Theme.of(context).dividerColor)),
+                          children:  <TableRow>[
+                            TableRow(
+                              children: <Widget>[
 
 
-                              Text('12*'),
-                              Container(child: Text('items'),alignment: Alignment(-1, 0),height: 48,),
-                              Text('C2'),
-                            ],
-                          ),
-                          TableRow(
+                                Text('12X',style: Theme.of(context).textTheme.body1,),
+                                Container(child: Text('items'),alignment: Alignment(-1, 0),height: 48,),
+                                Text('C2'),
+                              ],
+                            ),
+                            TableRow(
 
-                            children: <Widget>[
-                              Text('A2'),
-                              Container(child: Text('items'),alignment: Alignment(-1, 0),height: 48,),
+                              children: <Widget>[
+                                Text('A2'),
+                                Container(child: Text('items'),alignment: Alignment(-1, 0),height: 48,),
 //                          Text('B2'),
-                              Text('C2'),
-                            ],
-                          ),
-                          TableRow(
-                            children: <Widget>[
-                              Container(alignment: Alignment(-1, 0),height: 48,),
-                              Text('TOTAL'),
-                              Text('\$100'),
-                            ],
-                          ),
-                        ],
+                                Text('C2'),
+                              ],
+                            ),
+                            TableRow(
+                              children: <Widget>[
+                                Container(alignment: Alignment(-1, 0),height: 48,),
+                                Text('TOTAL'),
+                                Text('\$100'),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(height: DP.DP_16,),
                       OrderSettingWidget(),

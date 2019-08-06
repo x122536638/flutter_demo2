@@ -27,11 +27,11 @@ class _ShopCarPageState extends State<ShopCarPage> {
           ClipRRect(
               borderRadius: BorderRadius.circular(5),
               child:
-                  Image.asset('images/bg3.png', width: 60, fit: BoxFit.cover)),
+                  Image.asset('images/bg3.png', width: 56, fit: BoxFit.cover)),
           Expanded(
             flex: 100,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -45,11 +45,12 @@ class _ShopCarPageState extends State<ShopCarPage> {
 //            Expanded(flex: 50,child: DropdownButtonCustom()),
           DropdownButtonHideUnderline(
             child: Container(
-              padding: EdgeInsets.all(8),
+              padding: EdgeInsets.fromLTRB(8, 12    , 0, 0),
               decoration: BoxDecoration(
                   color: MainColor.backgroundTextField,
                   borderRadius: BorderRadius.circular(5)),
               width: 100,
+              height: 56,
               child: DropdownButton<String>(
 
                 isExpanded: true,
@@ -75,14 +76,13 @@ class _ShopCarPageState extends State<ShopCarPage> {
                       children: <Widget>[
                         Text(
                           value,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600),
+                          style: Theme.of(context).textTheme.subtitle,
                         ),
+                        SizedBox(height: 6,),
                         Text(
                           'usdhuhdhasdkhaks',
                           maxLines: 1,
+                          style: Theme.of(context).textTheme.body2,
                         ) //////DropdownButtonHideUnderline
                       ],
                     ),
