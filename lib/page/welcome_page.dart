@@ -52,10 +52,10 @@ class _MqWelcomeState extends State<MqWelcome> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Everything you need or want,'),
+              Text('GET STARTED IN A BREZZE,',style: Theme.of(context).textTheme.overline,),//style: Theme.of(context).textTheme.body1
 //              Text(DemoLocalizations.of(context).clickTop),
             SizedBox(height: 5,),
-              Text(S.of(context).weight_scallTotip),
+              Text(S.of(context).weight_scallTotip,style: Theme.of(context).textTheme.body2,),
             ],
           ),
         ),
@@ -66,6 +66,7 @@ class _MqWelcomeState extends State<MqWelcome> {
   TextFormField get tf1 => textField01 = TextFormField(
     controller: myController,
     decoration: InputDecoration(
+      errorMaxLines:99,
       labelText: "zip",
       hintText: "请输入zip",
 //            prefixIcon: Icon(Icons.email),
@@ -93,8 +94,7 @@ class _MqWelcomeState extends State<MqWelcome> {
           borderRadius: BorderRadius.circular(5),
           child: Container(
             width: 156,
-//            height: 56,
-//            margin: EdgeInsets.only(top: 30),
+            height: 56,
             decoration: BoxDecoration(
               color: MainColor.backgroundTextField,
             ),
@@ -118,8 +118,9 @@ class _MqWelcomeState extends State<MqWelcome> {
       enabled: false,
       controller: myController2,
       decoration: InputDecoration(
-          fillColor: MainColor.backgroundTextField,
-          labelText: "选择语言",
+        filled: false,//filled false会导致里面的内容没有边距   如果为true 背景色又回叠加
+          contentPadding:EdgeInsets.fromLTRB(8, 0, 0, 0),
+          labelText: "selected lange",
 //          hintText: globalKey.currentState.locale.languageCode,
 
           border: InputBorder.none //隐藏下划线
@@ -167,35 +168,15 @@ class _MqWelcomeState extends State<MqWelcome> {
                 SizedBox(
                   height: 40,
                 ),
-//              tf1(),
 //          Container(margin: EdgeInsets.only(top: 50),color: Colors.black12,width: 200,child: tf1(),),
                 selectLangueWidget,
-//            Text('hhh'),
-                Padding(
-                  padding: const EdgeInsets.only(top: 40),
-                  child: Row(
-                    children: <Widget>[
-                      Spacer(
-                        flex: 30,
-                      ),
-                      Expanded(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5),
-                          child: Container(
-                            child: tf1,
-                            decoration: BoxDecoration(
-                              color: MainColor.backgroundTextField,
-                            ),
-                          ),
-                        ),
-                        flex: 40,
-                      ),
-                      Spacer(
-                        flex: 30,
-                      ),
-                    ],
-                  ),
-                ),
+              SizedBox(height: 19,),
+
+              Container(
+                  alignment: Alignment.center,
+                  width: 156,
+//                  height: 56,
+                  child: tf1),
 
                 Container(
                   padding: EdgeInsets.only(top: 20),
@@ -218,7 +199,7 @@ class _MqWelcomeState extends State<MqWelcome> {
         context: context,
         builder: (BuildContext context) {
           return SimpleDialog(
-            title: Text('选择语言'),
+            title: Text('SELECTED LANGE'),
             children: <Widget>[
               SimpleDialogOption(
                 onPressed: () {

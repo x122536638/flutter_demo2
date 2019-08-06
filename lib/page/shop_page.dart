@@ -57,7 +57,7 @@ class _ShopPageState extends State<ShopPage>
 
 //        scrollDirection: Axis.horizontal,
           shrinkWrap: true,
-          //
+
 //         physics: NeverScrollableScrollPhysics(),
           physics: ClampingScrollPhysics(),
           //估计意思 contensize >size
@@ -153,11 +153,11 @@ class _ShopPageState extends State<ShopPage>
                 alignment:AlignmentDirectional.center,
                 children: <Widget>[
                   Positioned(
-                    child: Text("CARD"),
+                    child: Text("CART"),
                     bottom: DP.getDP(30.0),
                   ),
                   Positioned(
-                    child: Text("2"),
+                    child: Text("2",style: TextStyle(fontSize: 20),),
                     top: DP.getDP(30.0),
                   ),
                 ],

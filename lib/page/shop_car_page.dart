@@ -20,7 +20,7 @@ class _ShopCarPageState extends State<ShopCarPage> {
         new TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0);
     //设置Padding
     return new Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(12.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -35,8 +35,8 @@ class _ShopCarPageState extends State<ShopCarPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('ITEM1'),
-                  Text('ITEM224242424242423423423423423423423'),
+                  Text('ITEM1',style: Theme.of(context).textTheme.subtitle),
+                  Text('price',style: Theme.of(context).textTheme.body2,),
                 ],
               ),
             ),
@@ -81,7 +81,7 @@ class _ShopCarPageState extends State<ShopCarPage> {
                               fontWeight: FontWeight.w600),
                         ),
                         Text(
-                          '11112222233334444',
+                          'usdhuhdhasdkhaks',
                           maxLines: 1,
                         ) //////DropdownButtonHideUnderline
                       ],
@@ -123,7 +123,7 @@ class _ShopCarPageState extends State<ShopCarPage> {
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   child: Text(
                     "my cart",
-                    style: TextStyle(color: Colors.orange, fontSize: 24),
+                    style: Theme.of(context).textTheme.headline,
                   ),
                 ),
               ),
@@ -176,21 +176,7 @@ class _ShopCarPageState extends State<ShopCarPage> {
 
                                                 })),),
               )
-//                  centerWidget: Container(
-//                    height: 34,
-//                    child: RaisedButton(
 //
-//                onPressed: () {
-//                  Navigator.of(context).push(
-//                      MaterialPageRoute(builder: (context) => ShopCarOrderPage()));
-//
-//                },
-//                color: kcolorDeepMainColor,
-//                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
-////                shape: drawShape('radius'),
-//                child: Text('check out', style: TextStyle(color: Colors.white)),
-//              ),
-//                  )),
             ],
           ),
         ),

@@ -99,8 +99,13 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # see https://flutter.dev/custom-fonts/#from-packages Rubik-Regular
   fonts:
     - family: Rubik-Medium
       fonts:
         - asset: fonts/Rubik-Medium.ttf
+    - family: Rubik-Regular
+      fonts:
+        - asset: fonts/Rubik-Regular.ttf
+
+

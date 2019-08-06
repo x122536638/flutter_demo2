@@ -14,7 +14,7 @@ const kCheckoutGrey800 = Color(0xFF545149);
 const kCheckouBlack87 = Color(0xDE000000);
 
 const kCheckoutRed500 = Color(0xFFF44336);
-const kCheckoutErrorRed = Color(0xFFC5032B);
+const kCheckoutErrorRed = Color(0xFFB00020);//Color(0xFFC5032B);
 
 
 

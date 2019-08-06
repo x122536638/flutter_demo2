@@ -27,6 +27,9 @@ const double iIconSize80 = 80 * Constant.UNIT;
 //)
 
 class MainFont{
+  static String mainFontMedium ='Rubik-Medium';
+  static String mainFontRegular ='Rubik-Regular';
+
 
   static  TextStyle userSettingTextStyle =  TextStyle(
 
